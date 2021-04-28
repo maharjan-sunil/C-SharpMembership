@@ -1,0 +1,22 @@
+﻿@using Membership.Models
+@model RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+<h2>@ViewBag.Title.</h2>
+
+<form method="POST">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    @Html.LabelFor(x => x.Username)
+    @Html.TextBoxFor(x => x.Username)<br />
+
+    @Html.LabelFor(x => x.Password)
+    @Html.PasswordFor(x => x.Password)<br />
+
+    @Html.LabelFor(x => x.ConfirmPassword)
+    @Html.PasswordFor(x => x.ConfirmPassword)<br />
+
+    <input type="submit" value="Register" />
+</form>
