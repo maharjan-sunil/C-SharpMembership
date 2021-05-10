@@ -1,5 +1,7 @@
 ﻿using Membership.Constant;
+using Membership.Database;
 using Membership.Models;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -52,7 +54,7 @@ namespace Membership.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     CreateRoles();
-                    Roles.AddUserToRole(newUser.UserName, RoleConstant.Default_Role);
+                    Roles.AddUserToRole(newUser.UserName, "Staff");
                     return RedirectToAction("Login");
                 }
             }

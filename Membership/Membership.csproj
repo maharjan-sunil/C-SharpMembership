@@ -161,6 +161,9 @@
     <Compile Include="Database\aspnet_WebEvent_Events.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\Library.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Membership.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Membership.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Student.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -25,6 +25,9 @@
         <AssociationConnector Association="MembershipModel.FK__aspnet_Pe__UserI__76969D2E" ManuallyRouted="false" />
         <AssociationConnector Association="MembershipModel.FK__aspnet_Pr__UserI__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="MembershipModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MembershipModel.Library" Width="1.5" PointX="7.375" PointY="6" />
+        <EntityTypeShape EntityType="MembershipModel.Student" Width="1.5" PointX="9.625" PointY="5.875" />
+        <AssociationConnector Association="MembershipModel.FK__Student__Library__17F790F9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
