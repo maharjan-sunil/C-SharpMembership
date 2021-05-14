@@ -1,4 +1,5 @@
-﻿@using Membership.Models
+﻿@using Membership.Helper
+@using Membership.Models
 @model LoginModel
 @{
     ViewBag.Title = "Login";
@@ -9,7 +10,7 @@
 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl },
                 FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    @Html.AntiForgeryToken()
+    //@Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
     @Html.LabelFor(x => x.Username)
@@ -18,6 +19,12 @@
 
     @Html.LabelFor(x => x.Password)
     @Html.PasswordFor(x => x.Password)
+    <br />
+
+    <div class="form-group">
+        @Html.CaptchaHelper()
+        @Html.InvalidGoogleCaptchMessage("Captcha is not valid !")
+    </div>
     <br />
 
     <input type="submit" value="Login" />
