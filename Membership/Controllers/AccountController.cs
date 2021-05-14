@@ -1,7 +1,5 @@
-﻿using Membership.Constant;
-using Membership.Database;
+﻿using Membership.Helper;
 using Membership.Models;
-using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -17,7 +15,8 @@ namespace Membership.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateGoogleCaptchaAttribute]
+        // [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -44,7 +43,8 @@ namespace Membership.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateGoogleCaptchaAttribute]
+       // [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
