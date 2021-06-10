@@ -132,6 +132,7 @@
     <Compile Include="Constant\SystemConstant.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Database\aspnet_Applications.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
@@ -187,6 +188,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
+    <Compile Include="Implementation\Class\AbstractClass.cs" />
+    <Compile Include="Implementation\Class\BaseClass.cs" />
+    <Compile Include="Implementation\Class\DerivedClass.cs" />
+    <Compile Include="Implementation\Class\SealedClass.cs" />
+    <Compile Include="Implementation\Enum\Country.cs" />
+    <Compile Include="Implementation\Enum\Month.cs" />
+    <Compile Include="Implementation\Interface\IOrder.cs" />
+    <Compile Include="Models\DataManager\AbstractTest.cs" />
+    <Compile Include="Models\DataManager\SealedTest.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,6 +257,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
