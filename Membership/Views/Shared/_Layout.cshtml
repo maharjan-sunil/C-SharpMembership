@@ -26,6 +26,10 @@
                     {
                         <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
                     }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Log", "Index", "Log")</li>
+                    }
                 </ul>
             </div>
         </div>

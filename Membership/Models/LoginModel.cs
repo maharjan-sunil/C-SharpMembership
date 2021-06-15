@@ -12,5 +12,10 @@ namespace Membership.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+        public string Login { get; set; }
+    }
+    public class LoginLogModel
+    {
+        public string Log { get; set; }
     }
 }
