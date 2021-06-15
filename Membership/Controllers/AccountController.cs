@@ -1,4 +1,5 @@
 ﻿using Membership.Helper;
+using Membership.Implementation.DataManager;
 using Membership.Models;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -7,6 +8,11 @@ namespace Membership.Controllers
 {
     public class AccountController : Controller
     {
+        private LogManager _logManager;
+        public AccountController()
+        {
+            _logManager = new LogManager();
+        }
         [HttpGet]
         public ActionResult Login(string returnUrl)
         {
@@ -23,9 +29,13 @@ namespace Membership.Controllers
             {
                 if (System.Web.Security.Membership.ValidateUser(model.Username, model.Password))
                 {
+                    model.Login = "Success";
+                    _logManager.LogLogin(model);
                     FormsAuthentication.SetAuthCookie(model.Username, false);
                     return RedirectToLocal(returnUrl);
                 }
+                model.Login = "Failure";
+                _logManager.LogLogin(model);
             }
             return View(model);
         }
