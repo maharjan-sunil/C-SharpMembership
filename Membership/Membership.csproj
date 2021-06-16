@@ -197,6 +197,10 @@
     <Compile Include="Implementation\Enum\Country.cs" />
     <Compile Include="Implementation\Enum\Month.cs" />
     <Compile Include="Implementation\Interface\IOrder.cs" />
+    <Compile Include="IpTrack.asmx.cs">
+      <DependentUpon>IpTrack.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Models\DataManager\AbstractTest.cs" />
     <Compile Include="Models\DataManager\SealedTest.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -222,6 +226,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="IpTrack.asmx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Database\Membership.edmx">
