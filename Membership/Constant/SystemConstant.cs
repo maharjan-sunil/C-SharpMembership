@@ -8,5 +8,9 @@
         public const string GoogleCaptchaValidationUri = "https://www.google.com/recaptcha/api/siteverify";
         public const string GoogleCaptchaScriptUri = "https://www.google.com/recaptcha/api.js";
 
+        public const char CsvSeparataor = ';';
+        public const char IdSeparataor = '|';
+
+        public const string CsvContentType = "text/csv";
     }
 }
