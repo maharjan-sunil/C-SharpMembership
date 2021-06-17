@@ -5,15 +5,10 @@ namespace Membership.Controllers
 {
     public class OrderController : Controller, IOrder
     {
-        private int Id;
-
-        // Please do check for this Interface field use
         public int OrderId
         {
-            get => Id;
-            set =>
-                Id = 1;
-
+            get => throw new System.NotImplementedException();
+            set => throw new System.NotImplementedException();
         }
 
         // GET: Order

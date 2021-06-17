@@ -48,7 +48,7 @@ namespace Membership.Implementation.DataManager
             return strBuilder.ToString();
         }
 
-        private void DirectoryExist(string directoryPath)
+        public void DirectoryExist(string directoryPath)
         {
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
