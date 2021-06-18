@@ -29,5 +29,10 @@ namespace Membership.Controllers
             //string EnumValue = Enum.GetName(typeof(Country),i);
             return View();
         }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
