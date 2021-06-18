@@ -136,6 +136,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Custom\File.cs" />
+    <Compile Include="Custom\Security.cs" />
     <Compile Include="Database\aspnet_Applications.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>

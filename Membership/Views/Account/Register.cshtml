@@ -19,6 +19,9 @@
     @Html.LabelFor(x => x.ConfirmPassword)
     @Html.PasswordFor(x => x.ConfirmPassword)<br />
 
+    @Html.Label("Role")
+    @Html.DropDownListFor(x => x.RoleId, new SelectList(Model.ListOfRoles))<br />
+
     <div class="form-group">
         @Html.CaptchaHelper()
         @Html.InvalidGoogleCaptchMessage("Captcha is not valid !")

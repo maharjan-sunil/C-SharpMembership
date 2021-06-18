@@ -1,4 +1,5 @@
 ﻿using Membership.Constant;
+using Membership.Custom;
 using Membership.Database;
 using Membership.Implementation.DataManager;
 using Membership.Implementation.Interface;
@@ -13,6 +14,7 @@ using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
+    [Security]
     public class FileController : Controller
     {
         public ActionResult Index()

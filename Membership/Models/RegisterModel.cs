@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Membership.Models
 {
@@ -16,5 +18,9 @@ namespace Membership.Models
         [Display(Name = "Confirm Password")]
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
+
+        public string  RoleId { get; set; }
+        public List<string> ListOfRoles { get; set; }
+
     }
 }

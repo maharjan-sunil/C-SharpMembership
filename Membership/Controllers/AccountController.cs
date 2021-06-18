@@ -1,6 +1,7 @@
 ﻿using Membership.Helper;
 using Membership.Implementation.DataManager;
 using Membership.Models;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -49,7 +50,9 @@ namespace Membership.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            return View();
+            RegisterModel model = new RegisterModel();
+            model.ListOfRoles = Roles.GetAllRoles().ToList();
+            return View(model);
         }
 
         [HttpPost]
@@ -64,10 +67,11 @@ namespace Membership.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     CreateRoles();
-                    Roles.AddUserToRole(newUser.UserName, "Staff");
+                    Roles.AddUserToRole(newUser.UserName, model.RoleId);
                     return RedirectToAction("Login");
                 }
             }
+            model.ListOfRoles = Roles.GetAllRoles().ToList();
             return View(model);
         }
 
