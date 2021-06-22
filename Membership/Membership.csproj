@@ -192,6 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
     <Compile Include="Implementation\Class\AbstractClass.cs" />
     <Compile Include="Implementation\Class\BaseClass.cs" />
@@ -203,7 +204,9 @@
     <Compile Include="Implementation\Enum\Month.cs" />
     <Compile Include="Implementation\Interface\IDownload.cs" />
     <Compile Include="Implementation\Interface\IOrder.cs" />
+    <Compile Include="Implementation\Interface\IFile.cs" />
     <Compile Include="Implementation\Service\CsvService.cs" />
+    <Compile Include="Implementation\Service\FileService.cs" />
     <Compile Include="IpTrack.asmx.cs">
       <DependentUpon>IpTrack.asmx</DependentUpon>
       <SubType>Component</SubType>

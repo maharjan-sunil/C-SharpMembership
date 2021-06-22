@@ -17,6 +17,11 @@ namespace Membership.Controllers
     [Security]
     public class FileController : Controller
     {
+        private IFile _readFile { get; set; }
+        public FileController()
+        {
+            _readFile = new FileService();
+        }
         public ActionResult Index()
         {
             FileModel model = new FileModel();
@@ -121,6 +126,12 @@ namespace Membership.Controllers
 
                 return File(file, SystemConstant.CsvContentType, fileName);
             }
+        }
+
+        public string ReadFile()
+        {
+            string path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
+            return _readFile.Read(path);
         }
     }
 }
