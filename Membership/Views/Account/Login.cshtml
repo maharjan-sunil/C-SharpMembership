@@ -13,12 +13,17 @@
     //@Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    @Html.LabelFor(x => x.Username)
-    @Html.TextBoxFor(x => x.Username)
+    <div>
+        @Html.LabelFor(x => x.Username)
+        @Html.TextBoxFor(x => x.Username)
+    </div>
     <br />
 
-    @Html.LabelFor(x => x.Password)
-    @Html.PasswordFor(x => x.Password)
+    <div>
+        @Html.LabelFor(x => x.Password)
+        @Html.PasswordFor(x => x.Password, new { @class = "showCredentials" })
+        <i class="fa fa-eye" id="ShowHide" aria-hidden="true"></i>
+    </div>
     <br />
 
     <div class="form-group">

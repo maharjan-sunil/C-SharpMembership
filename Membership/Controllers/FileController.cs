@@ -128,7 +128,20 @@ namespace Membership.Controllers
             }
         }
 
+        //implemented via property injection
         public string ReadFile()
+        {
+            string path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
+            return _readFile.Read(path);
+        }
+
+        //implemented via method injection
+        public string ReadViaMethodInjection()
+        {
+            return ReadFile(new FileService());
+        }
+
+        public string ReadFile(IFile _file)
         {
             string path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
             return _readFile.Read(path);
