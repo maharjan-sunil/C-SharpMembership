@@ -1,6 +1,7 @@
 ﻿using Membership.Constant;
 using Membership.Custom;
 using Membership.Database;
+using Membership.Helper;
 using Membership.Implementation.DataManager;
 using Membership.Implementation.Interface;
 using Membership.Implementation.Service;
@@ -122,5 +123,12 @@ namespace Membership.Controllers
                 return File(file, SystemConstant.CsvContentType, fileName);
             }
         }
+
+        public string ReadFile()
+        {
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
+            return new FileHelper().ReadFile(path);
+        }
+
     }
 }

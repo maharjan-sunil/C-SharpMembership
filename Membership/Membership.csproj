@@ -189,9 +189,11 @@
     <Compile Include="Database\Student.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fake\FakeReadService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
     <Compile Include="Implementation\Class\AbstractClass.cs" />
     <Compile Include="Implementation\Class\BaseClass.cs" />
@@ -203,7 +205,9 @@
     <Compile Include="Implementation\Enum\Month.cs" />
     <Compile Include="Implementation\Interface\IDownload.cs" />
     <Compile Include="Implementation\Interface\IOrder.cs" />
+    <Compile Include="Implementation\Interface\IFile.cs" />
     <Compile Include="Implementation\Service\CsvService.cs" />
+    <Compile Include="Implementation\Service\FileService.cs" />
     <Compile Include="IpTrack.asmx.cs">
       <DependentUpon>IpTrack.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -254,6 +258,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -272,6 +277,7 @@
     <Content Include="Views\Log\Index.cshtml" />
     <Content Include="Views\File\Index.cshtml" />
     <Content Include="Views\File\Upload.cshtml" />
+    <Content Include="SystemFile\Log.Log" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
