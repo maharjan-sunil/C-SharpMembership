@@ -132,6 +132,7 @@
     <Compile Include="Constant\RoleConstant.cs" />
     <Compile Include="Constant\SystemConstant.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
@@ -199,7 +200,9 @@
     <Compile Include="Implementation\Class\BaseClass.cs" />
     <Compile Include="Implementation\Class\DerivedClass.cs" />
     <Compile Include="Implementation\Class\SealedClass.cs" />
+    <Compile Include="Implementation\DataManager\BaseDataManager.cs" />
     <Compile Include="Implementation\DataManager\DownloadManager.cs" />
+    <Compile Include="Implementation\DataManager\FileManager.cs" />
     <Compile Include="Implementation\DataManager\LogManager.cs" />
     <Compile Include="Implementation\Enum\Country.cs" />
     <Compile Include="Implementation\Enum\Month.cs" />
@@ -281,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
