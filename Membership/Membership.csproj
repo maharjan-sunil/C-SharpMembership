@@ -195,6 +195,7 @@
     </Compile>
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
+    <Compile Include="Helper\VerfiyHelper.cs" />
     <Compile Include="Implementation\Class\AbstractClass.cs" />
     <Compile Include="Implementation\Class\BaseClass.cs" />
     <Compile Include="Implementation\Class\DerivedClass.cs" />

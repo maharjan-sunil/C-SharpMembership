@@ -10,4 +10,11 @@ namespace Membership.Models
         [File(".csv")]
         public HttpPostedFileBase File { get; set; }
     }
+
+    public class BaseEntityModel
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+    }
 }

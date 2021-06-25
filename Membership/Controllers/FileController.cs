@@ -130,5 +130,11 @@ namespace Membership.Controllers
             return new FileHelper().ReadFile(path);
         }
 
+        public List<BaseEntityModel> ReadFiles()
+        {
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/File.txt");
+            return new FileHelper().GetListOfFile(path);
+        }
+
     }
 }
