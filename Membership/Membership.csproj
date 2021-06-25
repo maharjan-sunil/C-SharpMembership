@@ -200,6 +200,7 @@
     <Compile Include="Implementation\Class\BaseClass.cs" />
     <Compile Include="Implementation\Class\DerivedClass.cs" />
     <Compile Include="Implementation\Class\SealedClass.cs" />
+    <Compile Include="Implementation\DataManager\BaseDataManager.cs" />
     <Compile Include="Implementation\DataManager\DownloadManager.cs" />
     <Compile Include="Implementation\DataManager\FileManager.cs" />
     <Compile Include="Implementation\DataManager\LogManager.cs" />
