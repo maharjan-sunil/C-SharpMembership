@@ -1,5 +1,7 @@
 ﻿using Membership.Implementation.Interface;
 using Membership.Implementation.Service;
+using Membership.Models;
+using System.Collections.Generic;
 
 namespace Membership.Helper
 {
@@ -16,6 +18,11 @@ namespace Membership.Helper
         public string ReadFile(string path)
         {
             return _file.Read(path);
+        }
+
+        public List<BaseEntityModel> GetListOfFile(string path)
+        {
+            return _file.GetFiles(path);
         }
     }
 }
