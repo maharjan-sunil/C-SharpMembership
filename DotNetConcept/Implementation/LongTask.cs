@@ -10,7 +10,6 @@ namespace DotNetConcept.Implementation
         {
             var list = new List<UserModel>();
 
-            Task.Delay(1000).Wait();
             for (int i = 1; i <= 3; i++)
             {
                 var model = new UserModel();

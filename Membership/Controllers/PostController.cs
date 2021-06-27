@@ -11,12 +11,6 @@ namespace Membership.Controllers
             return View(list);
         }
 
-        public bool Get()
-        {
-            var result = dataManager.Get().Result;
-            return false;
-        }
-
         public bool Add()
         {
             var result = dataManager.Add().Result;

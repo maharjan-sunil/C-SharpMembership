@@ -16,7 +16,7 @@ using System.Web.Mvc;
 namespace Membership.Controllers
 {
     [Security]
-    public class FileController : Controller
+    public class FileController : BaseController<FileManager>
     {
         public ActionResult Index()
         {

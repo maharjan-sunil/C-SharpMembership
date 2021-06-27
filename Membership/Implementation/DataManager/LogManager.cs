@@ -6,12 +6,21 @@ using System.Web;
 
 namespace Membership.Implementation.DataManager
 {
-    public class LogManager
+    public class LogManager : BaseDataManager
     {
+        public LogManager() : base()
+        {
+
+        }
+
+        public LogManager(int applicationId) : base(applicationId)
+        {
+
+        }
         public void LogLogin(LoginModel model)
         {
             string logString = GetLogData(model);
-
+            var applicationId = ApplicationId;
             string directoryPath = HttpContext.Current.Server.MapPath("~/SystemFile");
             string logFilePath = directoryPath + "/Log.Log";
             DirectoryExist(directoryPath);
