@@ -55,6 +55,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -128,6 +131,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Constant\BaseUrl\Url.cs" />
     <Compile Include="Constant\EncodingConstant.cs" />
     <Compile Include="Constant\RoleConstant.cs" />
     <Compile Include="Constant\SystemConstant.cs" />
@@ -137,6 +141,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Custom\File.cs" />
     <Compile Include="Custom\Security.cs" />
     <Compile Include="Database\aspnet_Applications.cs">
@@ -204,8 +209,10 @@
     <Compile Include="Implementation\DataManager\DownloadManager.cs" />
     <Compile Include="Implementation\DataManager\FileManager.cs" />
     <Compile Include="Implementation\DataManager\LogManager.cs" />
+    <Compile Include="Implementation\DataManager\PostDataManager.cs" />
     <Compile Include="Implementation\Enum\Country.cs" />
     <Compile Include="Implementation\Enum\Month.cs" />
+    <Compile Include="Implementation\Interface\IBase.cs" />
     <Compile Include="Implementation\Interface\IDownload.cs" />
     <Compile Include="Implementation\Interface\IOrder.cs" />
     <Compile Include="Implementation\Interface\IFile.cs" />
@@ -220,6 +227,7 @@
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +289,7 @@
     <Content Include="Views\File\Index.cshtml" />
     <Content Include="Views\File\Upload.cshtml" />
     <Content Include="SystemFile\Log.Log" />
+    <Content Include="Views\Post\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Membership", "Membership\Me
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipTest", "MembershipTest\MembershipTest.csproj", "{CEE9E362-D3F6-46DD-9CB9-FFC26EE31881}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetConcept", "DotNetConcept\DotNetConcept.csproj", "{F584A71F-A400-4DC2-9A4B-123D4D3E5F09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CEE9E362-D3F6-46DD-9CB9-FFC26EE31881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEE9E362-D3F6-46DD-9CB9-FFC26EE31881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEE9E362-D3F6-46DD-9CB9-FFC26EE31881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F584A71F-A400-4DC2-9A4B-123D4D3E5F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F584A71F-A400-4DC2-9A4B-123D4D3E5F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F584A71F-A400-4DC2-9A4B-123D4D3E5F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F584A71F-A400-4DC2-9A4B-123D4D3E5F09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
