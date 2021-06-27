@@ -50,18 +50,20 @@ namespace Membership.Implementation.DataManager
 
         public async Task<PostModel> Get()
         {
-            int id = 1;
+            string id = "test_1";
             string responseFromApi = "";
 
             //set request using system.net.webrequest
             var request = WebRequest.Create($"{Constant.BaseUrl.Url.BaseUrl}posts/{id}");
             request.Method = "GET";
-            //request.Headers = 
+            //request.ContentType = "application/x-www-form-urlencoded";
+            //request.ContentLength = data.Length;
 
-            //add body for get request
+            //adding data for get request
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                streamWriter.Write(id);
 
             var response = request.GetResponse();
-            
             //read response via stream
             var result = response.GetResponseStream();
             using (var reader = new StreamReader(result))
