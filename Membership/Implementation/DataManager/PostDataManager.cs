@@ -3,6 +3,8 @@ using Membership.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -46,9 +48,29 @@ namespace Membership.Implementation.DataManager
             return false;
         }
 
-        public Task<PostModel> Get()
+        public async Task<PostModel> Get()
         {
-            throw new NotImplementedException();
+            int id = 1;
+            string responseFromApi = "";
+
+            //set request using system.net.webrequest
+            var request = WebRequest.Create($"{Constant.BaseUrl.Url.BaseUrl}posts/{id}");
+            request.Method = "GET";
+            //request.Headers = 
+
+            //add body for get request
+
+            var response = request.GetResponse();
+            
+            //read response via stream
+            var result = response.GetResponseStream();
+            using (var reader = new StreamReader(result))
+            {
+                responseFromApi = reader.ReadToEnd();
+            }
+
+            var model = JsonConvert.DeserializeObject<PostModel>(responseFromApi);
+            return model;
         }
 
         public async Task<List<PostModel>> GetList()
