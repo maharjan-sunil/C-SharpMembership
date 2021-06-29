@@ -24,5 +24,10 @@ namespace Membership.Helper
         {
             return _file.GetFiles(path);
         }
+
+        public BaseEntityModel GetFile(string path)
+        {
+            return _file.FileOnly(path);
+        }
     }
 }

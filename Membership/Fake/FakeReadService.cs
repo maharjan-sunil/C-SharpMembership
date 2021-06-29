@@ -7,6 +7,11 @@ namespace Membership.Fake
 {
     public class FakeReadService : IFile
     {
+        public BaseEntityModel FileOnly(string path)
+        {
+            throw new NotImplementedException();
+        }
+
         //instead of creating fake read service used moq
         public List<BaseEntityModel> GetFiles(string path)
         {
