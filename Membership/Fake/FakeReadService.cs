@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Membership.Fake
 {
-    public class FakeReadService : IFile
+    public class FakeReadService
     {
         //instead of creating fake read service used moq
         public List<BaseEntityModel> GetFiles(string path)
