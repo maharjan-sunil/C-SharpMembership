@@ -69,5 +69,16 @@ namespace MembershipTest
 
             Assert.That(() => fileHelper.GetListOfFile(null), Throws.ArgumentNullException);
         }
+
+        [Test]
+        public void GetFile_WithEmptyPath_ReturnErrorMessage()
+        {
+            var filReader = new Mock<IFile>();
+            filReader.Setup(f => f.FileOnly(null)).Throws(new ArgumentNullException());
+
+            var fileHelper = new FileHelper(filReader.Object);
+
+            Assert.That(() => fileHelper.GetFile(null), Throws.ArgumentNullException);
+        }
     }
 }
