@@ -1,5 +1,4 @@
-﻿using Membership.Constant;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 
 namespace Membership.Custom

@@ -1,13 +1,4 @@
-﻿using Membership.Database;
-using Membership.Implementation.Class;
-using Membership.Implementation.DataManager;
-using Membership.Implementation.Enum;
-using Membership.Implementation.Interface;
-using Membership.Implementation.Service;
-using System;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
