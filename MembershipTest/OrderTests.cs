@@ -44,5 +44,47 @@ namespace MembershipTest
             });
             Assert.That(result, Is.Empty);
         }
+        [Test]
+        public void OverLappingOrderExist_ButNoOtherData_ReturnEmptyString()
+        {
+            orderMock.Setup(x => x.GetList()).Returns(new List<Order>
+            {
+                 new Order
+                {
+                    Id=1,
+                    Status = true,
+                    ReferenceId = "10"
+                }
+            });
+
+            var result = dataManager.GetOverLappingOrder(new Order
+            {
+                Id=1,
+                Status = true,
+                ReferenceId = "10"
+            });
+            Assert.That(result, Is.Empty);
+        }
+        [Test]
+        public void OverLappingOrderExist_IfOverLapExist_ReturnFirstOrderReferenceId()
+        {
+            orderMock.Setup(x => x.GetList()).Returns(new List<Order>
+            {
+                 new Order
+                {
+                    Id=2,
+                    Status = true,
+                    ReferenceId = "100"
+                }
+            });
+
+            var result = dataManager.GetOverLappingOrder(new Order
+            {
+                Id = 1,
+                Status = true,
+                ReferenceId = "10"
+            });
+            Assert.That(result, Is.EqualTo("100"));
+        }
     }
 }
