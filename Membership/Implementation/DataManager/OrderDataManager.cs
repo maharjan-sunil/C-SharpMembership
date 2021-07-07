@@ -17,7 +17,7 @@ namespace Membership.Implementation.DataManager
         {
             if (!order.Status)
                 return string.Empty;
-
+            _order.InteractionTest(order);
             var list = _order.GetList();
             var overLappingOrder = list.Where(l => l.Id != order.Id && l.Status).ToList();
             if (overLappingOrder == null || overLappingOrder.Count == 0)
