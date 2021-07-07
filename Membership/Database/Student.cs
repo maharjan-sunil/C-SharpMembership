@@ -16,7 +16,7 @@ namespace Membership.Database
     {
         public int StudentId { get; set; }
         public string Name { get; set; }
-        public Nullable<int> LibraryId { get; set; }
+        public int LibraryId { get; set; }
     
         public virtual Library Library { get; set; }
     }

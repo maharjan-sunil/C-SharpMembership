@@ -16,7 +16,7 @@ namespace Membership.Implementation.Interface
 
         //cannot have variable except fot that can have field
         //All fields in interface are public static final, i.e. they are constants.
-        int OrderId { get; set; }
+        //int OrderId { get; set; }
         List<Order> GetList();
 
     }

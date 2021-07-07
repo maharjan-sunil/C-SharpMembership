@@ -19,10 +19,10 @@ namespace Membership.Implementation.DataManager
                 return string.Empty;
 
             var list = _order.GetList();
-            var overLappingOrder = list.Where(l => l.Id != order.Id && l.Status);
-            if (overLappingOrder == null)
+            var overLappingOrder = list.Where(l => l.Id != order.Id && l.Status).ToList();
+            if (overLappingOrder == null || overLappingOrder.Count == 0)
                 return string.Empty;
-
+            else
             return overLappingOrder.FirstOrDefault().ReferenceId;
         }
 
