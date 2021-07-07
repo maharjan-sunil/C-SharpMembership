@@ -18,7 +18,8 @@ namespace Membership.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginModel model = new LoginModel();
+            return View(model);
         }
 
         [HttpPost]

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3d86e4d9ac874ce9b616654886068c76" Name="Diagram1">
+      <Diagram DiagramId="bca0790125d94798bb9771f672b554b4" Name="Diagram1">
         <EntityTypeShape EntityType="MembershipModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MembershipModel.aspnet_Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MembershipModel.aspnet_Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
@@ -17,6 +17,15 @@
         <EntityTypeShape EntityType="MembershipModel.aspnet_WebEvent_Events" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MembershipModel.Library" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="MembershipModel.Student" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_Applications" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_Profiles" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_Roles" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_Users" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
         <AssociationConnector Association="MembershipModel.FK__aspnet_Me__Appli__276EDEB3" ManuallyRouted="false" />
         <AssociationConnector Association="MembershipModel.FK__aspnet_Pa__Appli__59063A47" ManuallyRouted="false" />
         <AssociationConnector Association="MembershipModel.FK__aspnet_Ro__Appli__45F365D3" ManuallyRouted="false" />

@@ -150,6 +150,18 @@
     <Compile Include="Database\aspnet_Membership.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_Membership_GetUserByUserId_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\aspnet_Paths.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
@@ -162,6 +174,9 @@
     <Compile Include="Database\aspnet_Profile.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\aspnet_Roles.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
@@ -169,6 +184,9 @@
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\aspnet_Users.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\aspnet_WebEvent_Events.cs">
@@ -193,6 +211,33 @@
       <DependentUpon>Membership.edmx</DependentUpon>
     </Compile>
     <Compile Include="Database\Student.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_Applications.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_Profiles.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_Roles.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_Users.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_WebPartState_User.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Fake\FakeReadService.cs" />
