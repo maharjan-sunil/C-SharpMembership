@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="FileHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OrderTests.cs" />
     <Compile Include="VerifyHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>

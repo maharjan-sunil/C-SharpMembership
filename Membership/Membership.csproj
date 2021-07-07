@@ -210,6 +210,7 @@
     <Compile Include="Implementation\DataManager\DownloadManager.cs" />
     <Compile Include="Implementation\DataManager\FileManager.cs" />
     <Compile Include="Implementation\DataManager\LogManager.cs" />
+    <Compile Include="Implementation\DataManager\OrderDataManager.cs" />
     <Compile Include="Implementation\DataManager\PostDataManager.cs" />
     <Compile Include="Implementation\Enum\Country.cs" />
     <Compile Include="Implementation\Enum\Month.cs" />
@@ -219,14 +220,16 @@
     <Compile Include="Implementation\Interface\IFile.cs" />
     <Compile Include="Implementation\Service\CsvService.cs" />
     <Compile Include="Implementation\Service\FileService.cs" />
+    <Compile Include="Implementation\Service\OrderService.cs" />
     <Compile Include="IpTrack.asmx.cs">
       <DependentUpon>IpTrack.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Models\DataManager\AbstractTest.cs" />
-    <Compile Include="Models\DataManager\SealedTest.cs" />
+    <Compile Include="Models\Oop\AbstractTest.cs" />
+    <Compile Include="Models\Oop\SealedTest.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,7 +12,7 @@ namespace Membership.Implementation.Service
         public List<BaseEntityModel> GetFiles(string path)
         {
             if (string.IsNullOrEmpty(path))
-                throw new ArgumentNullException();
+                return null;
 
             //var list = new List<BaseEntityModel>
             //{
@@ -30,7 +30,7 @@ namespace Membership.Implementation.Service
             //var fileText = JsonConvert.SerializeObject(list);
 
             //File.WriteAllText(path,fileText);
-            
+
             var jsonString = File.ReadAllText(path);
             var listOfFile = JsonConvert.DeserializeObject<List<BaseEntityModel>>(jsonString);
             return listOfFile;
@@ -39,8 +39,17 @@ namespace Membership.Implementation.Service
         public string Read(string path)
         {
             if (string.IsNullOrEmpty(path))
-                throw new ArgumentNullException();
+                return "";
             return File.ReadAllText(path);
+        }
+
+        public BaseEntityModel FileOnly(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+
+            }
+            return new BaseEntityModel { };
         }
     }
 }

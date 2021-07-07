@@ -1,6 +1,8 @@
 ﻿using Membership.Helper;
+using Membership.Implementation.Interface;
 using Moq;
 using NUnit.Framework;
+using Membership.Models;
 
 namespace MembershipTest
 {

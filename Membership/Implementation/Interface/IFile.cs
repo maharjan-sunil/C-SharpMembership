@@ -9,5 +9,7 @@ namespace Membership.Implementation.Interface
 
         List<BaseEntityModel> GetFiles(string path);
 
+        BaseEntityModel FileOnly(string path);
+
     }
 }
