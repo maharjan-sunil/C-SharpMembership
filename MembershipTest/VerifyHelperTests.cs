@@ -19,7 +19,7 @@ namespace MembershipTest
             Verify.GetOrder(Order);
 
             //verifies that the same object have been used
-            //interaction testing
+            //named as interaction testing
             VerifyMock.Verify(v => v.GetOrderId(Order));
         }
     }

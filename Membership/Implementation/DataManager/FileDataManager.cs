@@ -1,15 +1,21 @@
 ﻿using Membership.Implementation.Interface;
 using Membership.Implementation.Service;
 using Membership.Models;
+using System;
 using System.Collections.Generic;
 
-namespace Membership.Helper
+namespace Membership.Implementation.DataManager
 {
-    public class FileHelper
+    public class FileDataManager
     {
         private IFile _file;
 
-        public FileHelper(IFile file = null)
+        public FileDataManager()
+        {
+
+        }
+
+        public FileDataManager(IFile file = null)
         {
             _file = file ?? new FileService();
         }
@@ -17,6 +23,8 @@ namespace Membership.Helper
         //implemented via constructor param injection
         public string ReadFile(string path)
         {
+            if (string.IsNullOrEmpty(path))
+                throw new ArgumentNullException();
             return _file.Read(path);
         }
 
@@ -29,5 +37,6 @@ namespace Membership.Helper
         {
             return _file.FileOnly(path);
         }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using Membership.Custom;
+﻿using Membership.CustomAttribute;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 

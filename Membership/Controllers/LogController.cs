@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
-    public class LogController : BaseController<LogManager>
+    public class LogController : BaseController<LogDataManager>
     {
         // GET: Log
         public ActionResult Index()

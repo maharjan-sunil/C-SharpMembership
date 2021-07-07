@@ -59,7 +59,7 @@ namespace MembershipTest
 
             var result = dataManager.GetOverLappingOrder(new Order
             {
-                Id=1,
+                Id = 1,
                 Status = true,
                 ReferenceId = "10"
             });

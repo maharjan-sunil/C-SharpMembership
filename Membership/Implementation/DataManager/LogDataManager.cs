@@ -6,14 +6,14 @@ using System.Web;
 
 namespace Membership.Implementation.DataManager
 {
-    public class LogManager : BaseDataManager
+    public class LogDataManager : BaseDataManager
     {
-        public LogManager() : base()
+        public LogDataManager() : base()
         {
 
         }
 
-        public LogManager(int applicationId) : base(applicationId)
+        public LogDataManager(int applicationId) : base(applicationId)
         {
 
         }

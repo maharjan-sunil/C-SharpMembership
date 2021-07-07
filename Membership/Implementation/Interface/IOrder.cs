@@ -10,7 +10,6 @@ namespace Membership.Implementation.Interface
         //int total = 0;
 
         //by default all method defined in interface are abtract
-        //which means cannot have non-abstract method
         decimal TotalPrice();
         int GetOrderId(Object obj);
 

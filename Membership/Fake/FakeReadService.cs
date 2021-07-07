@@ -20,11 +20,7 @@ namespace Membership.Fake
 
         public string Read(string path)
         {
-            if (!String.IsNullOrEmpty(path))
-            {
-                return "file data";
-            }
-            throw new ArgumentNullException();
+            return "file data";
         }
     }
 }

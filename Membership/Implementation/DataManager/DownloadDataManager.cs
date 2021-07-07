@@ -2,10 +2,10 @@
 
 namespace Membership.Implementation.DataManager
 {
-    public class DownloadManager
+    public class DownloadDataManager
     {
         IDownload _download;
-        public DownloadManager(IDownload download)
+        public DownloadDataManager(IDownload download)
         {
             this._download = download;
         }

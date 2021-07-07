@@ -35,6 +35,5 @@ namespace Membership.Controllers
             return result;
         }
 
-
     }
 }
