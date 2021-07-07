@@ -18,6 +18,7 @@ namespace Membership.Implementation.Interface
         //All fields in interface are public static final, i.e. they are constants.
         //int OrderId { get; set; }
         List<Order> GetList();
-
+        void InteractionTest(Object order);
+        
     }
 }

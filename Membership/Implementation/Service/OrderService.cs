@@ -14,6 +14,11 @@ namespace Membership.Implementation.Service
             throw new NotImplementedException();
         }
 
+        public void InteractionTest(Object order)
+        {
+            throw new NotImplementedException();
+        }
+
         public decimal TotalPrice()
         {
             throw new NotImplementedException();
