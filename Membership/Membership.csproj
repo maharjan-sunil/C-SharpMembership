@@ -241,8 +241,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Database\Membership.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Membership.Context.cs</LastGenOutput>
       <DependentUpon>Membership.edmx</DependentUpon>
+      <LastGenOutput>Membership.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Database\Membership.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
