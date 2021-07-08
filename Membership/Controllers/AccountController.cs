@@ -9,21 +9,22 @@ namespace Membership.Controllers
 {
     public class AccountController : Controller
     {
-        private LogManager _logManager;
+        private LogDataManager _logManager;
         public AccountController()
         {
-            _logManager = new LogManager();
+            _logManager = new LogDataManager();
         }
         [HttpGet]
         public ActionResult Login(string returnUrl)
         {
+            CreateRoles();
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginModel model = new LoginModel();
+            return View(model);
         }
 
         [HttpPost]
         [ValidateGoogleCaptchaAttribute]
-        // [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -57,7 +58,6 @@ namespace Membership.Controllers
 
         [HttpPost]
         [ValidateGoogleCaptchaAttribute]
-       // [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)

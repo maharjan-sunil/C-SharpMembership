@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace Membership.Custom
+namespace Membership.CustomAttribute
 {
     public class File : ValidationAttribute
     {

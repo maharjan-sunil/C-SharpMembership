@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 
-namespace Membership.Custom
+namespace Membership.CustomAttribute
 {
     public class Security : AuthorizeAttribute
     {

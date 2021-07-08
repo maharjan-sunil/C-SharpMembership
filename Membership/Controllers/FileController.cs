@@ -1,5 +1,5 @@
 ﻿using Membership.Constant;
-using Membership.Custom;
+using Membership.CustomAttribute;
 using Membership.Database;
 using Membership.Helper;
 using Membership.Implementation.DataManager;
@@ -16,7 +16,7 @@ using System.Web.Mvc;
 namespace Membership.Controllers
 {
     [Security]
-    public class FileController : BaseController<FileManager>
+    public class FileController : BaseController<FileDataManager>
     {
         public ActionResult Index()
         {
@@ -101,7 +101,7 @@ namespace Membership.Controllers
 
                 //use "IDownload" interface to inject CsvService class objects in DownloadManager class constructor
                 IDownload csvService = new CsvService();
-                DownloadManager _downloadManager = new DownloadManager(csvService);
+                DownloadDataManager _downloadManager = new DownloadDataManager(csvService);
                 var file = _downloadManager.GetBytesFromString(str.ToString());
                 var fileName = DateTime.Now.ToString("dd-mm-yyyy") + "_Student.csv";
 
@@ -112,7 +112,7 @@ namespace Membership.Controllers
                 memoryStream.Position = 0;
 
                 string directoryPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile");
-                new LogManager().DirectoryExist(directoryPath);
+                new LogDataManager().DirectoryExist(directoryPath);
 
                 //because of white space in fileName i got stuck
                 string path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/" + fileName);
@@ -127,13 +127,13 @@ namespace Membership.Controllers
         public string ReadFile()
         {
             var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
-            return new FileHelper().ReadFile(path);
+            return dataManager.ReadFile(path);
         }
 
         public List<BaseEntityModel> ReadFiles()
         {
             var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/File.txt");
-            return new FileHelper().GetListOfFile(path);
+            return dataManager.GetListOfFile(path);
         }
 
     }

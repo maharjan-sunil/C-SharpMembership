@@ -142,12 +142,24 @@
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="Custom\File.cs" />
-    <Compile Include="Custom\Security.cs" />
+    <Compile Include="CustomAttribute\File.cs" />
+    <Compile Include="CustomAttribute\Security.cs" />
     <Compile Include="Database\aspnet_Applications.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\aspnet_Membership.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_Membership_GetUserByUserId_Result.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\aspnet_Paths.cs">
@@ -162,6 +174,9 @@
     <Compile Include="Database\aspnet_Profile.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\aspnet_Roles.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
@@ -169,6 +184,9 @@
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\aspnet_Users.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\aspnet_WebEvent_Events.cs">
@@ -195,21 +213,47 @@
     <Compile Include="Database\Student.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\vw_aspnet_Applications.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_Profiles.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_Roles.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_Users.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\vw_aspnet_WebPartState_User.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
     <Compile Include="Fake\FakeReadService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
     <Compile Include="Helper\VerfiyHelper.cs" />
-    <Compile Include="Implementation\Class\AbstractClass.cs" />
-    <Compile Include="Implementation\Class\BaseClass.cs" />
-    <Compile Include="Implementation\Class\DerivedClass.cs" />
-    <Compile Include="Implementation\Class\SealedClass.cs" />
+    <Compile Include="Implementation\OOP\AbstractClass.cs" />
+    <Compile Include="Implementation\OOP\BaseClass.cs" />
+    <Compile Include="Implementation\OOP\DerivedClass.cs" />
+    <Compile Include="Implementation\OOP\SealedClass.cs" />
     <Compile Include="Implementation\DataManager\BaseDataManager.cs" />
-    <Compile Include="Implementation\DataManager\DownloadManager.cs" />
-    <Compile Include="Implementation\DataManager\FileManager.cs" />
-    <Compile Include="Implementation\DataManager\LogManager.cs" />
+    <Compile Include="Implementation\DataManager\DownloadDataManager.cs" />
+    <Compile Include="Implementation\DataManager\FileDataManager.cs" />
+    <Compile Include="Implementation\DataManager\LogDataManager.cs" />
     <Compile Include="Implementation\DataManager\OrderDataManager.cs" />
     <Compile Include="Implementation\DataManager\PostDataManager.cs" />
     <Compile Include="Implementation\Enum\Country.cs" />
@@ -225,8 +269,8 @@
       <DependentUpon>IpTrack.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Models\Oop\AbstractTest.cs" />
-    <Compile Include="Models\Oop\SealedTest.cs" />
+    <Compile Include="Implementation\OOP\AbstractTest.cs" />
+    <Compile Include="Implementation\OOP\SealedTest.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Order.cs" />
