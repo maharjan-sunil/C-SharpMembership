@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Membership.Fake
 {
-    public class FakeReadService : IFile
+    public class FakeReadService
     {
         public BaseEntityModel FileOnly(string path)
         {
