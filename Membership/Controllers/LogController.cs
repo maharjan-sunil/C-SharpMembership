@@ -5,13 +5,14 @@ using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
+    [Authorize]
     public class LogController : BaseController<LogDataManager>
     {
         // GET: Log
         public ActionResult Index()
         {
             //demo of protected
-            dataManager.LogLogin(new LoginModel { Username = "Sunil" });
+            dataManager.Log(new LoginModel { Username = "Sunil" });
 
             LoginLogModel model = new LoginLogModel();
             string logPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");

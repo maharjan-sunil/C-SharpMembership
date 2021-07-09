@@ -19,7 +19,7 @@ namespace Membership.Controllers
             }
             else
             {
-                filterContext.Result = new RedirectResult("~/Home/AccessDenied");
+                filterContext.Result = new RedirectResult("~/Account/Login");
             }
         }
     }

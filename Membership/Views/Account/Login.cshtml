@@ -6,14 +6,13 @@
 }
 <h2>@ViewBag.Title.</h2>
 
-@if (Model.Login!=null && Model.Login.Equals("Failure"))
+@if (!string.IsNullOrEmpty(Model.Login))
 {
     <span class="text-danger">Invalid Login</span>
 }
 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl },
                 FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    //@Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
     <div>

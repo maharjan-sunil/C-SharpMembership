@@ -140,10 +140,11 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="CustomAttribute\File.cs" />
-    <Compile Include="CustomAttribute\Security.cs" />
+    <Compile Include="CustomAttribute\Admin.cs" />
     <Compile Include="Database\aspnet_Applications.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
@@ -246,6 +247,7 @@
     </Compile>
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
     <Compile Include="Helper\VerfiyHelper.cs" />
+    <Compile Include="Implementation\Interface\ILog.cs" />
     <Compile Include="Implementation\OOP\AbstractClass.cs" />
     <Compile Include="Implementation\OOP\BaseClass.cs" />
     <Compile Include="Implementation\OOP\DerivedClass.cs" />
@@ -338,6 +340,7 @@
     <Content Include="Views\File\Upload.cshtml" />
     <Content Include="SystemFile\Log.Log" />
     <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,6 @@
 ﻿using Membership.Constant;
 using Membership.CustomAttribute;
 using Membership.Database;
-using Membership.Helper;
 using Membership.Implementation.DataManager;
 using Membership.Implementation.Interface;
 using Membership.Implementation.Service;
@@ -15,7 +14,7 @@ using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
-    [Security]
+    [Admin]
     public class FileController : BaseController<FileDataManager>
     {
         public ActionResult Index()

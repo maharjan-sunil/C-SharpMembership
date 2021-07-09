@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace Membership.CustomAttribute
 {
-    public class Security : AuthorizeAttribute
+    public class Admin : AuthorizeAttribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
