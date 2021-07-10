@@ -17,6 +17,7 @@ namespace Membership.Controllers
             _log = new LogDataManager();
         }
 
+
         [HttpGet]
         public ActionResult Login(string returnUrl)
         {
