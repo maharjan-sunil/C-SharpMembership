@@ -91,6 +91,7 @@
     <Compile Include="FileTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OrderTests.cs" />
+    <Compile Include="HouseKeeperTests.cs" />
     <Compile Include="VerifyHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
