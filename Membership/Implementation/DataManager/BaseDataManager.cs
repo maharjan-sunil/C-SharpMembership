@@ -13,4 +13,16 @@
             ApplicationId = applicationId;
         }
     }
+
+    public class BaseDataManager<Converter> : BaseDataManager
+       where Converter : class, new()
+    {
+        protected readonly Converter converter;
+
+        public BaseDataManager() : base()
+        {
+            converter = new Converter();
+        }
+
+    }
 }

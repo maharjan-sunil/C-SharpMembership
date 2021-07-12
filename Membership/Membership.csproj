@@ -140,10 +140,11 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="CustomAttribute\Admin.cs" />
     <Compile Include="CustomAttribute\File.cs" />
-    <Compile Include="CustomAttribute\Security.cs" />
     <Compile Include="Database\aspnet_Applications.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
@@ -193,6 +194,9 @@
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\Library.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Member.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\Membership.Context.cs">
@@ -247,7 +251,14 @@
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
     <Compile Include="Helper\HousekeeperHelper.cs" />
     <Compile Include="Helper\VerfiyHelper.cs" />
+    <Compile Include="Implementation\Converter\MemberConverter.cs" />
+    <Compile Include="Implementation\DataManager\MemberDataManager.cs" />
+    <Compile Include="Implementation\Enum\Gender.cs" />
+    <Compile Include="Implementation\Interface\IConverter.cs" />
     <Compile Include="Implementation\Interface\IHouseKeeper.cs" />
+    <Compile Include="Implementation\Interface\ILog.cs" />
+    <Compile Include="Implementation\Interface\IDataManager.cs" />
+    <Compile Include="Implementation\Interface\IController.cs" />
     <Compile Include="Implementation\Interface\IUnitOfWork.cs" />
     <Compile Include="Implementation\OOP\AbstractClass.cs" />
     <Compile Include="Implementation\OOP\BaseClass.cs" />
@@ -277,6 +288,7 @@
     <Compile Include="Implementation\OOP\SealedTest.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\PostModel.cs" />
@@ -342,6 +354,7 @@
     <Content Include="Views\File\Upload.cshtml" />
     <Content Include="SystemFile\Log.Log" />
     <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
