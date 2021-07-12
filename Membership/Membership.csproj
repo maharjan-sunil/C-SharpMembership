@@ -245,7 +245,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\GoogleCaptchaHelper.cs" />
+    <Compile Include="Helper\HousekeeperHelper.cs" />
     <Compile Include="Helper\VerfiyHelper.cs" />
+    <Compile Include="Implementation\Interface\IHouseKeeper.cs" />
+    <Compile Include="Implementation\Interface\IUnitOfWork.cs" />
     <Compile Include="Implementation\OOP\AbstractClass.cs" />
     <Compile Include="Implementation\OOP\BaseClass.cs" />
     <Compile Include="Implementation\OOP\DerivedClass.cs" />
@@ -264,6 +267,7 @@
     <Compile Include="Implementation\Interface\IFile.cs" />
     <Compile Include="Implementation\Service\CsvService.cs" />
     <Compile Include="Implementation\Service\FileService.cs" />
+    <Compile Include="Implementation\Service\HouseKeeperService.cs" />
     <Compile Include="Implementation\Service\OrderService.cs" />
     <Compile Include="IpTrack.asmx.cs">
       <DependentUpon>IpTrack.asmx</DependentUpon>
