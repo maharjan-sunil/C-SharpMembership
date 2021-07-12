@@ -34,10 +34,10 @@ namespace Membership.Controllers
             return result;
         }
 
-        public MemberModel GetDetail(int id)
+        public JsonResult GetDetail(int id)
         {
             var model = _repository.GetDetail(id);
-            return model;
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Index()

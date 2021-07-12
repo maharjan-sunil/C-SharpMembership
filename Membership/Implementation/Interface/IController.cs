@@ -6,7 +6,7 @@ namespace Membership.Implementation.Interface
         where Model : class
     {
         ActionResult Index();
-        Model GetDetail(int id);
+        JsonResult GetDetail(int id);
         //ActionResult Index(string query);
         bool Create(Model model);
         bool Delete(int id);

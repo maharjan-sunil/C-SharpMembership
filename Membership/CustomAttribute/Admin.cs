@@ -8,13 +8,20 @@ namespace Membership.CustomAttribute
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             var context = filterContext.HttpContext.User;
-            string[] roles = System.Web.Security.Roles.GetRolesForUser(context.Identity.Name);
-            if (roles.Contains("Admin"))
+            if (context.Identity.IsAuthenticated)
             {
+                string[] roles = System.Web.Security.Roles.GetRolesForUser(context.Identity.Name);
+                if (roles.Contains("Admin"))
+                {
+                }
+                else
+                {
+                    HandleUnauthorizedRequest(filterContext);
+                }
             }
             else
             {
-                HandleUnauthorizedRequest(filterContext);
+                filterContext.Result = new RedirectResult("~/Account/Login");
             }
 
         }
