@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
-    [Admin]
+    [Authorize]
     public class MemberController : Controller, IController<MemberModel>
     {
         private IDataManager<MemberModel> _repository;
@@ -16,10 +16,57 @@ namespace Membership.Controllers
             _repository = new MemberDataManager();
         }
 
-        public bool Create(MemberModel model)
+        [HttpGet]
+        public ActionResult Index()
         {
-            var result = _repository.Add(model);
-            return result;
+            var listOfMember = _repository.GetList();
+            return View(listOfMember);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(MemberModel model)
+        {
+            var listOfMember = _repository.GetList(model);
+            return View(listOfMember);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var model = new MemberModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MemberModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.Add(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = _repository.GetDetail(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(MemberModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.Edit(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         public bool Delete(int id)
@@ -28,27 +75,12 @@ namespace Membership.Controllers
            return result;
         }
 
-        public bool Edit(MemberModel model)
-        {
-            var result = _repository.Edit(model);
-            return result;
-        }
-
         public JsonResult GetDetail(int id)
         {
             var model = _repository.GetDetail(id);
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Index()
-        {
-            var listOfMember = _repository.GetList();
-            return View(listOfMember);
-        }
-
-        //public ActionResult Index(string query)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
+     
     }
 }

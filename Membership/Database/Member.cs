@@ -19,7 +19,7 @@ namespace Membership.Database
         public int Age { get; set; }
         public string Address { get; set; }
         public string Contact { get; set; }
-        public string Gender { get; set; }
-        public string DOB { get; set; }
+        public int Gender { get; set; }
+        public System.DateTime DOB { get; set; }
     }
 }

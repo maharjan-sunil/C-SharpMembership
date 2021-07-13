@@ -6,7 +6,7 @@ namespace Membership.Implementation.Interface
         where Class: class
     {
         List<Class> GetList();
-        //List<Class> GetList(string query);
+        List<Class> GetList(Class model);
         Class GetDetail(int id);
         bool Delete(int id);
         bool Edit(Class model);

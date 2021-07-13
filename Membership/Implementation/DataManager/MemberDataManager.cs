@@ -102,9 +102,32 @@ namespace Membership.Implementation.DataManager
             }
         }
 
-        //public List<MemberModel> GetList(string query)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<MemberModel> GetList(MemberModel model)
+        {
+            List<MemberModel> listOfMember = new List<MemberModel>();
+            try
+            {
+                using (var db = new MembershipEntities())
+                {
+                    var query = db.Members.AsQueryable();
+                    if (!string.IsNullOrEmpty(model.Name))
+                        query = query.Where(q => q.Name.Contains(model.Name));
+                    if (!string.IsNullOrEmpty(model.Contact))
+                        query = query.Where(q => q.Contact.Contains(model.Contact));
+                    if (model.Age > 0)
+                        query = query.Where(q => q.Age == model.Age);
+                    foreach (var data in query)
+                    {
+                        var member = converter.ConverToModel(data);
+                        listOfMember.Add(member);
+                    }
+                    return listOfMember;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

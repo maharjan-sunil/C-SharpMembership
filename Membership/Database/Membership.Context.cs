@@ -37,8 +37,6 @@ namespace Membership.Database
         public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
         public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
         public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
-        public virtual DbSet<Library> Libraries { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<vw_aspnet_Applications> vw_aspnet_Applications { get; set; }
         public virtual DbSet<vw_aspnet_MembershipUsers> vw_aspnet_MembershipUsers { get; set; }
         public virtual DbSet<vw_aspnet_Profiles> vw_aspnet_Profiles { get; set; }
@@ -48,6 +46,8 @@ namespace Membership.Database
         public virtual DbSet<vw_aspnet_WebPartState_Paths> vw_aspnet_WebPartState_Paths { get; set; }
         public virtual DbSet<vw_aspnet_WebPartState_Shared> vw_aspnet_WebPartState_Shared { get; set; }
         public virtual DbSet<vw_aspnet_WebPartState_User> vw_aspnet_WebPartState_User { get; set; }
+        public virtual DbSet<Library> Libraries { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Member> Members { get; set; }
     
         public virtual ObjectResult<string> aspnet_AnyDataInTables(Nullable<int> tablesToCheck)

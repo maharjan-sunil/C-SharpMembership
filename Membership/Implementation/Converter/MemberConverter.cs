@@ -1,6 +1,8 @@
 ﻿using Membership.Database;
+using Membership.Implementation.Enum;
 using Membership.Implementation.Interface;
 using Membership.Models;
+using System;
 
 namespace Membership.Implementation.Converter
 {
@@ -16,7 +18,9 @@ namespace Membership.Implementation.Converter
                 Age = model.Age,
                 Contact = model.Contact,
                 DOB = model.DOB,
-                Gender = model.Gender
+                DOBLabel = model.DOB.ToShortDateString(),
+                Gender = model.Gender,
+                GenderLabel = System.Enum.GetName(typeof(Gender),model.Gender)
             };
         }
 
