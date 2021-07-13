@@ -1,0 +1,57 @@
+﻿@using Membership.Models
+@using Membership.Implementation.Enum
+@model MemberModel
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Member</h2>
+
+@using (Html.BeginForm("Create", "Member"))
+{
+    @Html.AntiForgeryToken();
+    <div class="row form-group">
+        <div class="col-md-4">
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(x => x.Age)
+            @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Age)
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(x => x.Contact)
+            @Html.TextBoxFor(x => x.Contact, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Contact)
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-4">
+            @Html.LabelFor(x => x.Address)
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(x => x.Gender)
+            @Html.DropDownListFor(x => x.Gender, EnumHelper.GetSelectList(typeof(Gender)), "Select",
+                                                new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Gender)
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(x => x.DOB)
+            @Html.EditorFor(x => x.DOB, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.DOB)
+        </div>
+    </div>
+    <input type="submit" value="Create" />
+}

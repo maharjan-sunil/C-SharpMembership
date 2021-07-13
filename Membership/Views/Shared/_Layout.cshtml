@@ -31,7 +31,7 @@
                     {
                         <li>@Html.ActionLink("Log", "Index", "Log")</li>
                         @*<li>@Html.ActionLink("File", "Index", "File")</li>
-                        <li>@Html.ActionLink("Post", "Index", "Post")</li>*@
+                            <li>@Html.ActionLink("Post", "Index", "Post")</li>*@
                         <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
 
                     }
@@ -48,6 +48,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

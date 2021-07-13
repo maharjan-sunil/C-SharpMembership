@@ -73,6 +73,11 @@ namespace Membership.Controllers
                     Roles.AddUserToRole(newUser.UserName, model.RoleId);
                     return RedirectToAction("Login");
                 }
+                else
+                {
+                    //need to check enum and return respective message
+                    ModelState.AddModelError("Error","Please Recheck the details!");
+                }
             }
             model.ListOfRoles = Roles.GetAllRoles().ToList();
             return View(model);

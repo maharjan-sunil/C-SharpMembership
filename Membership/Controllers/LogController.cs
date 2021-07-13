@@ -1,11 +1,12 @@
-﻿using Membership.Implementation.DataManager;
+﻿using Membership.CustomAttribute;
+using Membership.Implementation.DataManager;
 using Membership.Models;
 using System.IO;
 using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
-    [Authorize]
+    [SuperAdminAuthorize]
     public class LogController : BaseController<LogDataManager>
     {
         // GET: Log

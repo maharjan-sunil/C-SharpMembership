@@ -8,7 +8,7 @@ CREATE TABLE Member (
 						Age INT NOT NULL,
 						Address NVARCHAR(50) NOT NULL,
 						Contact NVARCHAR(15) NOT NULL,
-						Gender NVARCHAR(15) NOT NULL,
-						DOB NVARCHAR(20) NOT NULL
+						Gender INT NOT NULL,
+						DOB DateTime NOT NULL
 					)
 END

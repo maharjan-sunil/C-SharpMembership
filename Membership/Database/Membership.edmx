@@ -152,8 +152,8 @@
           <Property Name="Age" Type="int" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Contact" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="Gender" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="DOB" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="DOB" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -312,7 +312,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <Property Name="DataSize" Type="int" />
           <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__aspnet_Me__Appli__276EDEB3">
+        <Association Name="FK__aspnet_Me__Appli__4D94879B">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
           <ReferentialConstraint>
@@ -324,7 +324,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Me__UserI__286302EC">
+        <Association Name="FK__aspnet_Me__UserI__4E88ABD4">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -336,7 +336,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pa__Appli__59063A47">
+        <Association Name="FK__aspnet_Pa__Appli__7F2BE32F">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
           <ReferentialConstraint>
@@ -348,7 +348,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pe__PathI__5EBF139D">
+        <Association Name="FK__aspnet_Pe__PathI__04E4BC85">
           <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
           <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -360,7 +360,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pe__PathI__628FA481">
+        <Association Name="FK__aspnet_Pe__PathI__08B54D69">
           <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
           <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
@@ -372,7 +372,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pe__UserI__6383C8BA">
+        <Association Name="FK__aspnet_Pe__UserI__09A971A2">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
           <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
@@ -384,7 +384,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pr__UserI__3C69FB99">
+        <Association Name="FK__aspnet_Pr__UserI__628FA481">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -396,7 +396,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Ro__Appli__45F365D3">
+        <Association Name="FK__aspnet_Ro__Appli__6C190EBB">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -408,7 +408,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Us__Appli__173876EA">
+        <Association Name="FK__aspnet_Us__Appli__3D5E1FD2">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -420,7 +420,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
+        <Association Name="FK__aspnet_Us__RoleI__70DDC3D8">
           <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
           <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -432,7 +432,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Us__UserI__49C3F6B7">
+        <Association Name="FK__aspnet_Us__UserI__6FE99F9F">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -444,7 +444,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Library__787EE5A0">
+        <Association Name="FK__Student__Library__3E1D39E1">
           <End Role="Library" Type="Self.Library" Multiplicity="1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -893,51 +893,51 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
     [vw_aspnet_WebPartState_User].[LastUpdatedDate] AS [LastUpdatedDate]
     FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__aspnet_Me__Appli__276EDEB3" Association="Self.FK__aspnet_Me__Appli__276EDEB3">
+          <AssociationSet Name="FK__aspnet_Me__Appli__4D94879B" Association="Self.FK__aspnet_Me__Appli__4D94879B">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__286302EC" Association="Self.FK__aspnet_Me__UserI__286302EC">
+          <AssociationSet Name="FK__aspnet_Me__UserI__4E88ABD4" Association="Self.FK__aspnet_Me__UserI__4E88ABD4">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__59063A47" Association="Self.FK__aspnet_Pa__Appli__59063A47">
+          <AssociationSet Name="FK__aspnet_Pa__Appli__7F2BE32F" Association="Self.FK__aspnet_Pa__Appli__7F2BE32F">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__5EBF139D" Association="Self.FK__aspnet_Pe__PathI__5EBF139D">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__04E4BC85" Association="Self.FK__aspnet_Pe__PathI__04E4BC85">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="Self.FK__aspnet_Pe__PathI__628FA481">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__08B54D69" Association="Self.FK__aspnet_Pe__PathI__08B54D69">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__6383C8BA" Association="Self.FK__aspnet_Pe__UserI__6383C8BA">
+          <AssociationSet Name="FK__aspnet_Pe__UserI__09A971A2" Association="Self.FK__aspnet_Pe__UserI__09A971A2">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__3C69FB99" Association="Self.FK__aspnet_Pr__UserI__3C69FB99">
+          <AssociationSet Name="FK__aspnet_Pr__UserI__628FA481" Association="Self.FK__aspnet_Pr__UserI__628FA481">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__45F365D3" Association="Self.FK__aspnet_Ro__Appli__45F365D3">
+          <AssociationSet Name="FK__aspnet_Ro__Appli__6C190EBB" Association="Self.FK__aspnet_Ro__Appli__6C190EBB">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__173876EA" Association="Self.FK__aspnet_Us__Appli__173876EA">
+          <AssociationSet Name="FK__aspnet_Us__Appli__3D5E1FD2" Association="Self.FK__aspnet_Us__Appli__3D5E1FD2">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="Self.FK__aspnet_Us__RoleI__4AB81AF0">
+          <AssociationSet Name="FK__aspnet_Us__RoleI__70DDC3D8" Association="Self.FK__aspnet_Us__RoleI__70DDC3D8">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__UserI__49C3F6B7" Association="Self.FK__aspnet_Us__UserI__49C3F6B7">
+          <AssociationSet Name="FK__aspnet_Us__UserI__6FE99F9F" Association="Self.FK__aspnet_Us__UserI__6FE99F9F">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Library__787EE5A0" Association="Self.FK__Student__Library__787EE5A0">
+          <AssociationSet Name="FK__Student__Library__3E1D39E1" Association="Self.FK__Student__Library__3E1D39E1">
             <End Role="Library" EntitySet="Library" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
@@ -1088,23 +1088,6 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Library">
-          <Key>
-            <PropertyRef Name="LibraryId" />
-          </Key>
-          <Property Name="LibraryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Students" Relationship="Self.FK__Student__Library__787EE5A0" FromRole="Library" ToRole="Student" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="StudentId" />
-          </Key>
-          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LibraryId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Library" Relationship="Self.FK__Student__Library__787EE5A0" FromRole="Student" ToRole="Library" />
         </EntityType>
         <EntityType Name="vw_aspnet_Applications">
           <Key>
@@ -1345,18 +1328,6 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Library__787EE5A0">
-          <End Role="Library" Type="Self.Library" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Library">
-              <PropertyRef Name="LibraryId" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="LibraryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="aspnet_UsersInRoles">
           <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
@@ -1372,8 +1343,6 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <EntitySet Name="aspnet_SchemaVersions" EntityType="Self.aspnet_SchemaVersions" />
           <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" />
           <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" />
-          <EntitySet Name="Libraries" EntityType="Self.Library" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="vw_aspnet_Applications" EntityType="Self.vw_aspnet_Applications" />
           <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="Self.vw_aspnet_MembershipUsers" />
           <EntitySet Name="vw_aspnet_Profiles" EntityType="Self.vw_aspnet_Profiles" />
@@ -1418,10 +1387,6 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <AssociationSet Name="FK__aspnet_Pr__UserI__3C69FB99" Association="Self.FK__aspnet_Pr__UserI__3C69FB99">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Student__Library__787EE5A0" Association="Self.FK__Student__Library__787EE5A0">
-            <End Role="Library" EntitySet="Libraries" />
-            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
           <AssociationSet Name="aspnet_UsersInRoles" Association="Self.aspnet_UsersInRoles">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
@@ -1758,6 +1723,12 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             <Parameter Name="ExceptionType" Mode="In" Type="String" />
             <Parameter Name="Details" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Libraries" EntityType="MembershipModel.Library" />
+          <EntitySet Name="Students" EntityType="MembershipModel.Student" />
+          <AssociationSet Name="FK__Student__Library__3E1D39E1" Association="MembershipModel.FK__Student__Library__3E1D39E1">
+            <End Role="Library" EntitySet="Libraries" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
           <EntitySet Name="Members" EntityType="MembershipModel.Member" />
         </EntityContainer>
         <ComplexType Name="aspnet_Membership_GetPassword_Result">
@@ -1809,6 +1780,35 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <Property Type="String" Name="Column1" Nullable="false" MaxLength="1" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
         </ComplexType>
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="LibraryId" />
+          </Key>
+          <Property Name="LibraryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="MembershipModel.FK__Student__Library__3E1D39E1" FromRole="Library" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LibraryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Library" Relationship="MembershipModel.FK__Student__Library__3E1D39E1" FromRole="Student" ToRole="Library" />
+        </EntityType>
+        <Association Name="FK__Student__Library__3E1D39E1">
+          <End Type="MembershipModel.Library" Role="Library" Multiplicity="1" />
+          <End Type="MembershipModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Library">
+              <PropertyRef Name="LibraryId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="LibraryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="Id" />
@@ -1818,8 +1818,8 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <Property Name="Age" Type="Int32" Nullable="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Contact" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="Gender" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="DOB" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1956,23 +1956,6 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
                 <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
                 <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
                 <ScalarProperty Name="Details" ColumnName="Details" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Libraries">
-            <EntityTypeMapping TypeName="MembershipModel.Library">
-              <MappingFragment StoreEntitySet="Library">
-                <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="MembershipModel.Student">
-              <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2215,6 +2198,23 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="aspnet_WebEvent_LogEvent" FunctionName="MembershipModel.Store.aspnet_WebEvent_LogEvent" />
+          <EntitySetMapping Name="Libraries">
+            <EntityTypeMapping TypeName="MembershipModel.Library">
+              <MappingFragment StoreEntitySet="Library">
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="MembershipModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Members">
             <EntityTypeMapping TypeName="MembershipModel.Member">
               <MappingFragment StoreEntitySet="Member">

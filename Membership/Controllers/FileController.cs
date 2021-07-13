@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
-    [Admin]
+    [AdminAuthorize]
     public class FileController : BaseController<FileDataManager>
     {
         public ActionResult Index()

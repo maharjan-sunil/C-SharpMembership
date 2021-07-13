@@ -6,10 +6,13 @@ namespace Membership.Implementation.Interface
         where Model : class
     {
         ActionResult Index();
+        ActionResult Index(Model model);
+        ActionResult Create();
+        ActionResult Create(Model model);
+        ActionResult Edit(int id);
+        ActionResult Edit(Model model);
         JsonResult GetDetail(int id);
-        //ActionResult Index(string query);
-        bool Create(Model model);
         bool Delete(int id);
-        bool Edit(Model model);
+     
     }
 }

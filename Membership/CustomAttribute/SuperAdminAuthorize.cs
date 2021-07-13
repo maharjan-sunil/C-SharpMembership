@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace Membership.CustomAttribute
 {
-    public class Admin : AuthorizeAttribute
+    public class SuperAdminAuthorize : AuthorizeAttribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
@@ -11,7 +11,7 @@ namespace Membership.CustomAttribute
             if (context.Identity.IsAuthenticated)
             {
                 string[] roles = System.Web.Security.Roles.GetRolesForUser(context.Identity.Name);
-                if (roles.Contains("Admin"))
+                if (roles.Contains("SuperAdmin"))
                 {
                 }
                 else
