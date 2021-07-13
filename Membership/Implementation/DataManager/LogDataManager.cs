@@ -1,4 +1,5 @@
-﻿using Membership.Models;
+﻿using Membership.Implementation.Interface;
+using Membership.Models;
 using System;
 using System.IO;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace Membership.Implementation.DataManager
 {
-    public class LogDataManager : BaseDataManager
+    public class LogDataManager : BaseDataManager, ILog
     {
         public LogDataManager() : base()
         {
@@ -17,7 +18,7 @@ namespace Membership.Implementation.DataManager
         {
 
         }
-        public void LogLogin(LoginModel model)
+        public void Log(LoginModel model)
         {
             string logString = GetLogData(model);
             var applicationId = ApplicationId;
@@ -62,5 +63,6 @@ namespace Membership.Implementation.DataManager
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
         }
+
     }
 }
