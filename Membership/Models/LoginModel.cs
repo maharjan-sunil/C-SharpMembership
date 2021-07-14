@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Membership.Models
 {
@@ -13,9 +14,11 @@ namespace Membership.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
         public string Login { get; set; }
+
+        public DateTime LogDate { get; set; }
     }
-    public class LoginLogModel
-    {
-        public string Log { get; set; }
-    }
+    //public class LoginLogModel
+    //{
+    //    public string Log { get; set; }
+    //}
 }

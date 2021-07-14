@@ -1,8 +1,9 @@
 ﻿using Membership.Implementation.Interface;
 using Membership.Models;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Web;
 
 namespace Membership.Implementation.DataManager
@@ -20,8 +21,7 @@ namespace Membership.Implementation.DataManager
         }
         public void Log(LoginModel model)
         {
-            string logString = GetLogData(model);
-            var applicationId = ApplicationId;
+            //var applicationId = ApplicationId;
             string directoryPath = HttpContext.Current.Server.MapPath("~/SystemFile");
             string logFilePath = directoryPath + "/Log.Log";
             DirectoryExist(directoryPath);
@@ -37,25 +37,33 @@ namespace Membership.Implementation.DataManager
                 //    stream.Write(logString);
                 //    stream.Flush();
                 //}
+
                 string oldContent = File.ReadAllText(logFilePath);
-                File.WriteAllText(logFilePath, logString + oldContent);
+                var list = JsonConvert.DeserializeObject<List<LoginModel>>(oldContent);
+                list.Add(model);
+                var loginModel = JsonConvert.SerializeObject(list, Formatting.Indented);
+                File.WriteAllText(logFilePath, loginModel);
             }
             else
             {
+                string logString = GetLogData(model);
                 File.WriteAllText(logFilePath, logString);
             }
         }
 
         private string GetLogData(LoginModel model)
         {
-            StringBuilder strBuilder = new StringBuilder();
-            strBuilder.AppendFormat("Log :\t {0}", DateTime.Now);
-            strBuilder.AppendLine();
-            strBuilder.AppendFormat("UserName :\t {0}", model.Username);
-            strBuilder.AppendLine();
-            strBuilder.AppendFormat("Login :\t {0}", model.Login);
-            strBuilder.AppendLine();
-            return strBuilder.ToString();
+            model.LogDate = DateTime.Now;
+            string loginModel = JsonConvert.SerializeObject(model);
+            //StringBuilder strBuilder = new StringBuilder();
+            //strBuilder.AppendFormat("Log :\t {0}", DateTime.Now);
+            //strBuilder.AppendLine();
+            //strBuilder.AppendFormat("UserName :\t {0}", model.Username);
+            //strBuilder.AppendLine();
+            //strBuilder.AppendFormat("Login :\t {0}", model.Login);
+            //strBuilder.AppendLine();
+            //return strBuilder.ToString();
+            return loginModel;
         }
 
         public void DirectoryExist(string directoryPath)

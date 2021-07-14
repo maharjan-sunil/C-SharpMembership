@@ -1,6 +1,8 @@
 ﻿using Membership.CustomAttribute;
 using Membership.Implementation.DataManager;
 using Membership.Models;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 using System.Web.Mvc;
 
@@ -13,15 +15,16 @@ namespace Membership.Controllers
         public ActionResult Index()
         {
             //demo of protected
-            dataManager.Log(new LoginModel { Username = "Sunil" });
-
-            LoginLogModel model = new LoginLogModel();
-            string logPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
+            //   dataManager.Log(new LoginModel { Username = "Sunil" });
+            List<LoginModel> list = new List<LoginModel>();
+              //LoginLogModel model = new LoginLogModel();
+              string logPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
             using (StreamReader stream = new StreamReader(logPath))
             {
-                model.Log = stream.ReadToEnd();
+                var log = stream.ReadToEnd();
+                list = JsonConvert.DeserializeObject<List<LoginModel>>(log);
             }
-            return View(model);
+            return View(list);
         }
     }
 }

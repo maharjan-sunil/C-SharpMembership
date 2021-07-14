@@ -32,6 +32,7 @@ namespace Membership.Controllers
         }
 
         [HttpGet]
+        [AdminAuthorize]
         public ActionResult Create()
         {
             var model = new MemberModel();
@@ -40,6 +41,7 @@ namespace Membership.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AdminAuthorize]
         public ActionResult Create(MemberModel model)
         {
             if (ModelState.IsValid)
@@ -51,6 +53,7 @@ namespace Membership.Controllers
         }
 
         [HttpGet]
+        [AdminAuthorize]
         public ActionResult Edit(int id)
         {
             var model = _repository.GetDetail(id);
@@ -58,6 +61,7 @@ namespace Membership.Controllers
         }
 
         [HttpPost]
+        [AdminAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(MemberModel model)
         {
@@ -69,6 +73,7 @@ namespace Membership.Controllers
             return View(model);
         }
 
+        [AdminAuthorize]
         public bool Delete(int id)
         {
             var result = _repository.Delete(id);

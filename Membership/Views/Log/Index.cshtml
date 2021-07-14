@@ -1,5 +1,5 @@
 ﻿@using Membership.Models
-@model LoginLogModel
+@model IEnumerable<LoginModel>
 
 @{
     ViewBag.Title = "Log";
@@ -8,7 +8,21 @@
 
 <h2>Log</h2>
 
-<div>
-    @Model.Log
-</div>
-
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>UserName</th>
+            <th>Status</th>
+            <th>DateTime</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>@log.Username</td>
+                <td>@log.Login</td>
+                <td>@log.LogDate</td>
+            </tr>
+        }
+</table>

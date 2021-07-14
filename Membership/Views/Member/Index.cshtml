@@ -100,9 +100,12 @@
                             <a href="/Member/Edit/@list.Id" >
                                 <i class="fa fa-pencil" aria-hidden="true" title="edit"></i>
                             </a>
+                            @if (!User.IsInRole("Staff"))
+                            {
                             <a href="#" data-id="@list.Id" data-toggle="modal" data-target="#delete">
                                 <i class="fa fa-trash" aria-hidden="true" title="delete"></i>
                             </a>
+                            }
                         </div>
                     </td>
                 </tr>
@@ -230,10 +233,13 @@
                     id: id
                 },
                 success: function (data) {
-                    if (data) {
+                    if (data === true) {
                         $('#member_' + id).remove();
                         $('#delete').modal('toggle');
                         toastr.success("Successfully Deleted!");
+                    }
+                    else {
+                        toastr.info("Not Authorize to delete");
                     }
                 },
                 error: function (err) {
