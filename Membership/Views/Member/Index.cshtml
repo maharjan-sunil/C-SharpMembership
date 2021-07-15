@@ -97,14 +97,17 @@
                             <a href="#" onclick="InfoMember(@list.Id)">
                                 <i class="fa fa-info" aria-hidden="true" title="info"></i>
                             </a>
-                            <a href="/Member/Edit/@list.Id" >
+                            <a href="/Member/Edit/@list.Id">
                                 <i class="fa fa-pencil" aria-hidden="true" title="edit"></i>
                             </a>
                             @if (!User.IsInRole("Staff"))
                             {
-                            <a href="#" data-id="@list.Id" data-toggle="modal" data-target="#delete">
-                                <i class="fa fa-trash" aria-hidden="true" title="delete"></i>
-                            </a>
+                                <a href="#" data-id="@list.Id" data-toggle="modal" data-target="#delete">
+                                    <i class="fa fa-trash" aria-hidden="true" title="delete"></i>
+                                </a>
+                                <a href="/Member/Download?fileName=@list.FileName">
+                                    <i class="fa fa-file" aria-hidden="true" title="download"></i>
+                                </a>
                             }
                         </div>
                     </td>
@@ -233,7 +236,7 @@
                     id: id
                 },
                 success: function (data) {
-                    if (data === true) {
+                    if (data === "True") {
                         $('#member_' + id).remove();
                         $('#delete').modal('toggle');
                         toastr.success("Successfully Deleted!");

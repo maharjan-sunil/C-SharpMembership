@@ -51,6 +51,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FoolproofValidation, Version=0.9.5851.39121, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Foolproof.0.9.4518\lib\net45\FoolproofValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
     </Reference>
@@ -361,6 +364,7 @@
     <Compile Include="Helper\HousekeeperHelper.cs" />
     <Compile Include="Helper\VerfiyHelper.cs" />
     <Compile Include="Implementation\Converter\MemberConverter.cs" />
+    <Compile Include="Implementation\DataManager\DirectoryManager.cs" />
     <Compile Include="Implementation\DataManager\MemberDataManager.cs" />
     <Compile Include="Implementation\Enum\Gender.cs" />
     <Compile Include="Implementation\Interface\IConverter.cs" />
@@ -374,7 +378,6 @@
     <Compile Include="Implementation\OOP\DerivedClass.cs" />
     <Compile Include="Implementation\OOP\SealedClass.cs" />
     <Compile Include="Implementation\DataManager\BaseDataManager.cs" />
-    <Compile Include="Implementation\DataManager\DownloadDataManager.cs" />
     <Compile Include="Implementation\DataManager\FileDataManager.cs" />
     <Compile Include="Implementation\DataManager\LogDataManager.cs" />
     <Compile Include="Implementation\DataManager\OrderDataManager.cs" />
@@ -382,10 +385,8 @@
     <Compile Include="Implementation\Enum\Country.cs" />
     <Compile Include="Implementation\Enum\Month.cs" />
     <Compile Include="Implementation\Interface\IBase.cs" />
-    <Compile Include="Implementation\Interface\IDownload.cs" />
     <Compile Include="Implementation\Interface\IOrder.cs" />
     <Compile Include="Implementation\Interface\IFile.cs" />
-    <Compile Include="Implementation\Service\CsvService.cs" />
     <Compile Include="Implementation\Service\FileService.cs" />
     <Compile Include="Implementation\Service\HouseKeeperService.cs" />
     <Compile Include="Implementation\Service\OrderService.cs" />
@@ -404,6 +405,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client Scripts\mvcfoolproof.unobtrusive.js" />
+    <Content Include="Client Scripts\mvcfoolproof.unobtrusive.min.js" />
+    <Content Include="Client Scripts\MvcFoolproofJQueryValidation.js" />
+    <Content Include="Client Scripts\MvcFoolproofJQueryValidation.min.js" />
+    <Content Include="Client Scripts\MvcFoolproofValidation.js" />
+    <Content Include="Client Scripts\MvcFoolproofValidation.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

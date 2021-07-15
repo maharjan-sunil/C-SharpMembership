@@ -20,7 +20,8 @@ namespace Membership.Implementation.Converter
                 DOB = model.DOB,
                 DOBLabel = model.DOB.ToShortDateString(),
                 Gender = model.Gender,
-                GenderLabel = System.Enum.GetName(typeof(Gender),model.Gender)
+                GenderLabel = System.Enum.GetName(typeof(Gender), model.Gender),
+                FileName = model.FileName
             };
         }
 
@@ -34,7 +35,8 @@ namespace Membership.Implementation.Converter
                 Age = model.Age,
                 Contact = model.Contact,
                 DOB = model.DOB,
-                Gender = model.Gender
+                Gender = model.Gender,
+                FileName = model.FileName
             };
         }
 
@@ -47,7 +49,7 @@ namespace Membership.Implementation.Converter
             self.Contact = model.Contact;
             self.DOB = model.DOB;
             self.Gender = model.Gender;
-
+            self.FileName = model.FileName;
             return self;
         }
     }

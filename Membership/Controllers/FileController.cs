@@ -17,6 +17,13 @@ namespace Membership.Controllers
     [AdminAuthorize]
     public class FileController : BaseController<FileDataManager>
     {
+        private readonly DirectoryManager directoryManager;
+        private const string Directory = "File";
+
+        public FileController()
+        {
+            directoryManager = new DirectoryManager();
+        }
         public ActionResult Index()
         {
             FileModel model = new FileModel();
@@ -26,7 +33,8 @@ namespace Membership.Controllers
         [HttpGet]
         public ActionResult Upload()
         {
-            return View();
+            var model = new FileModel();
+            return View(model);
         }
 
         [HttpPost]
@@ -36,13 +44,7 @@ namespace Membership.Controllers
             List<Student> students = new List<Student>();
             if (ModelState.IsValid)
             {
-                //read from input stream
-                BinaryReader reader = new BinaryReader(model.File.InputStream);
-
-                //convert into byte array
-                byte[] binData = reader.ReadBytes((int)model.File.InputStream.Length);
-
-                string fileData = Encoding.Default.GetString(binData);
+                string fileData = dataManager.ReadFromFile(model.File);
                 for (int count = 1; count < (fileData.Split('\n').Count() - 1); count++)
                 {
                     //if you intend to spilt more than one char
@@ -52,11 +54,11 @@ namespace Membership.Controllers
                     {
                         int libraryId;
                         string[] arr = dataRow.Split(';');
-                        Int32.TryParse(arr[1], out libraryId);
+                        Int32.TryParse(arr[2], out libraryId);
 
                         Student student = new Student();
-                        student.Name = arr[0];
-                        student.LibraryId = !String.IsNullOrEmpty(arr[1]) ? libraryId : 0;
+                        student.Name = arr[1];
+                        student.LibraryId = !String.IsNullOrEmpty(arr[2]) ? libraryId : 0;
                         students.Add(student);
                     }
                 }
@@ -73,7 +75,7 @@ namespace Membership.Controllers
             return View(model);
         }
 
-        public FileResult Download()
+        public FileResult Downloads()
         {
             using (var db = new MembershipEntities())
             {
@@ -99,41 +101,30 @@ namespace Membership.Controllers
                 }
 
                 //use "IDownload" interface to inject CsvService class objects in DownloadManager class constructor
-                IDownload csvService = new CsvService();
-                DownloadDataManager _downloadManager = new DownloadDataManager(csvService);
-                var file = _downloadManager.GetBytesFromString(str.ToString());
+                IFile csvService = new FileService();
+                FileDataManager _fileManager = new FileDataManager(csvService);
+                var fileByte = _fileManager.GetBytesFromData(str.ToString());
                 var fileName = DateTime.Now.ToString("dd-mm-yyyy") + "_Student.csv";
 
-                //if you want to save in some directory in system
-                MemoryStream memoryStream = new MemoryStream(file, 0, file.Length);
-                memoryStream.Write(file, 0, file.Length);
-                memoryStream.Flush();
-                memoryStream.Position = 0;
+                dataManager.UploadFile(fileByte,Directory,fileName);
 
-                string directoryPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile");
-                new LogDataManager().DirectoryExist(directoryPath);
-
-                //because of white space in fileName i got stuck
-                string path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/" + fileName);
-                FileStream fileStream = new FileStream(path, FileMode.Create);
-                memoryStream.CopyTo(fileStream);
-                fileStream.Close();
-
-                return File(file, SystemConstant.CsvContentType, fileName);
+                return File(fileByte, SystemConstant.CsvContentType, fileName);
             }
         }
 
-        public string ReadFile()
-        {
-            var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
-            return dataManager.ReadFile(path);
-        }
+        //public string ReadFile()
+        //{
+        //    var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
+        //    return dataManager.ReadFile(path);
+        //}
 
-        public List<BaseEntityModel> ReadFiles()
-        {
-            var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/File.txt");
-            return dataManager.GetListOfFile(path);
-        }
+        //public List<BaseEntityModel> ReadFiles()
+        //{
+        //    var path = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/File.txt");
+        //    return dataManager.GetListOfFile(path);
+        //}
+
+
 
     }
 }

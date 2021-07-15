@@ -21,5 +21,6 @@ namespace Membership.Database
         public string Contact { get; set; }
         public int Gender { get; set; }
         public System.DateTime DOB { get; set; }
+        public string FileName { get; set; }
     }
 }

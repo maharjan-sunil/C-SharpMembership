@@ -10,9 +10,11 @@
 
 <h2>Add Member</h2>
 
-@using (Html.BeginForm("Create", "Member"))
+@using (Html.BeginForm("Create", "Member", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken();
+    @Html.HiddenFor(x=>x.IsFileRequired)
     <div class="row form-group">
         <div class="col-md-4">
             @Html.LabelFor(x => x.Name)
@@ -52,6 +54,12 @@
             @Html.EditorFor(x => x.DOB, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.DOB)
         </div>
+    </div>
+
+    <div class="row form-group">
+        @Html.LabelFor(x => x.File)
+        <input type="file" name="File"/>
+        @Html.ValidationMessageFor(x => x.File)
     </div>
     <input type="submit" value="Create" />
 }

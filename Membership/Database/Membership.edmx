@@ -154,6 +154,7 @@
           <Property Name="Contact" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Gender" Type="int" Nullable="false" />
           <Property Name="DOB" Type="datetime" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -444,7 +445,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Library__3E1D39E1">
+        <Association Name="FK__Student__Library__2CF2ADDF">
           <End Role="Library" Type="Self.Library" Multiplicity="1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -937,7 +938,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Library__3E1D39E1" Association="Self.FK__Student__Library__3E1D39E1">
+          <AssociationSet Name="FK__Student__Library__2CF2ADDF" Association="Self.FK__Student__Library__2CF2ADDF">
             <End Role="Library" EntitySet="Library" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
@@ -1820,6 +1821,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <Property Name="Contact" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Gender" Type="Int32" Nullable="false" />
           <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2218,6 +2220,7 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <EntitySetMapping Name="Members">
             <EntityTypeMapping TypeName="MembershipModel.Member">
               <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Contact" ColumnName="Contact" />

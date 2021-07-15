@@ -1,8 +1,7 @@
 ﻿using Membership.Implementation.Interface;
 using Membership.Implementation.Service;
-using Membership.Models;
 using System;
-using System.Collections.Generic;
+using System.Web;
 
 namespace Membership.Implementation.DataManager
 {
@@ -12,31 +11,64 @@ namespace Membership.Implementation.DataManager
 
         public FileDataManager()
         {
-
+            _file = new FileService();
         }
-
         public FileDataManager(IFile file = null)
         {
             _file = file ?? new FileService();
         }
 
-        //implemented via constructor param injection
-        public string ReadFile(string path)
+        public byte[] GetBytesFromData(string data)
         {
-            if (string.IsNullOrEmpty(path))
+            return _file.GetBytesFromData(data);
+        }
+
+        public byte[] GetBytesFromFile(string filePath)
+        {
+            return _file.GetBytesFromFile(filePath);
+        }
+
+        public string ReadFromFile(HttpPostedFileBase file)
+        {
+            if (file == null)
                 throw new ArgumentNullException();
-            return _file.Read(path);
+            return _file.ReadFromFile(file);
         }
 
-        public List<BaseEntityModel> GetListOfFile(string path)
+        public string UploadHttpPostedFileBase(HttpPostedFileBase model, string directory)
         {
-            return _file.GetFiles(path);
+            var fileName = _file.UploadHttpPostedFileBase(model, directory);
+            return fileName;
         }
 
-        public BaseEntityModel GetFile(string path)
+        public void UploadFile(byte[] fileByte, string directory, string fileName)
         {
-            return _file.FileOnly(path);
+            _file.UploadFileByte(fileByte, directory, fileName);
         }
+
+        //public FileDataManager(IFile file = null)
+        //{
+        //    _file = file ?? new FileService();
+        //}
+
+        //public string ReadFile(string file)
+        //{
+        //    if (file == null)
+        //        throw new ArgumentNullException();
+        //    return _file.Read(file);
+        //}
+
+        //public List<BaseEntityModel> GetListOfFile(string path)
+        //{
+        //    return _file.GetFiles(path);
+        //}
+
+        //public BaseEntityModel GetFile(string path)
+        //{
+        //    return _file.FileOnly(path);
+        //}
+
+
 
     }
 }

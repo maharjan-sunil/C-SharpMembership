@@ -12,5 +12,6 @@
         public const char IdSeparataor = '|';
 
         public const string CsvContentType = "text/csv";
+        public const string PdfContentType = "application/pdf";
     }
 }

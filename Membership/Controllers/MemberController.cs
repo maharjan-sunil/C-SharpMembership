@@ -1,7 +1,9 @@
-﻿using Membership.CustomAttribute;
+﻿using Membership.Constant;
+using Membership.CustomAttribute;
 using Membership.Implementation.DataManager;
 using Membership.Implementation.Interface;
 using Membership.Models;
+using System;
 using System.Web.Mvc;
 
 namespace Membership.Controllers
@@ -10,10 +12,13 @@ namespace Membership.Controllers
     public class MemberController : Controller, IController<MemberModel>
     {
         private IDataManager<MemberModel> _repository;
+        private const string Directory = "Member";
+        private readonly FileDataManager fileDataManager;
 
         public MemberController()
         {
             _repository = new MemberDataManager();
+            fileDataManager = new FileDataManager();
         }
 
         [HttpGet]
@@ -36,6 +41,7 @@ namespace Membership.Controllers
         public ActionResult Create()
         {
             var model = new MemberModel();
+            model.IsFileRequired = true;
             return View(model);
         }
 
@@ -57,6 +63,7 @@ namespace Membership.Controllers
         public ActionResult Edit(int id)
         {
             var model = _repository.GetDetail(id);
+            model.IsFileRequired = false;
             return View(model);
         }
 
@@ -77,7 +84,7 @@ namespace Membership.Controllers
         public bool Delete(int id)
         {
             var result = _repository.Delete(id);
-           return result;
+            return result;
         }
 
         public JsonResult GetDetail(int id)
@@ -86,6 +93,13 @@ namespace Membership.Controllers
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
-     
+        public FileResult Download(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
+                throw new ArgumentNullException();
+            var fileByte = fileDataManager.GetBytesFromFile($"{Directory}/{fileName}");
+            return File(fileByte, SystemConstant.CsvContentType, fileName);
+
+        }
     }
 }
