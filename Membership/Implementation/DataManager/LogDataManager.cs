@@ -10,9 +10,10 @@ namespace Membership.Implementation.DataManager
 {
     public class LogDataManager : BaseDataManager, ILog
     {
+        private readonly DirectoryManager directoryManager;
         public LogDataManager() : base()
         {
-
+            directoryManager = new DirectoryManager();
         }
 
         public LogDataManager(int applicationId) : base(applicationId)
@@ -24,7 +25,7 @@ namespace Membership.Implementation.DataManager
             //var applicationId = ApplicationId;
             string directoryPath = HttpContext.Current.Server.MapPath("~/SystemFile");
             string logFilePath = directoryPath + "/Log.Log";
-            DirectoryExist(directoryPath);
+            directoryManager.DirectoryExist(directoryPath);
 
             if (File.Exists(logFilePath))
             {
@@ -64,12 +65,6 @@ namespace Membership.Implementation.DataManager
             //strBuilder.AppendLine();
             //return strBuilder.ToString();
             return loginModel;
-        }
-
-        public void DirectoryExist(string directoryPath)
-        {
-            if (!Directory.Exists(directoryPath))
-                Directory.CreateDirectory(directoryPath);
         }
 
     }

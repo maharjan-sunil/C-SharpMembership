@@ -1,17 +1,21 @@
-﻿
+﻿@using Membership.Models
+@model FileModel
 @{
     ViewBag.Title = "Upload";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Upload</h2>
-
+<h2>
+    Upload
+    (please select csv file)
+</h2>
 
 <form method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
-    <input type="file" name="File" />
-    <br />
+    <div class="col-md-4">
+        <input type="file" name="File" />
+        @Html.ValidationMessageFor(x => x.File)
+    </div>
     <input type="submit" value="upload" />
 </form>
 

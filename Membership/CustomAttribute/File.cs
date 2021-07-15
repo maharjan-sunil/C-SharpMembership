@@ -22,7 +22,7 @@ namespace Membership.CustomAttribute
 
         public override string FormatErrorMessage(string name)
         {
-            return "Please select csv file";
+            return "Please upload correct file format";
         }
     }
 }
