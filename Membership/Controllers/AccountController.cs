@@ -22,8 +22,15 @@ namespace Membership.Controllers
         [HttpGet]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
             LoginModel model = new LoginModel();
+            try
+            {
+                ViewBag.ReturnUrl = returnUrl;
+            }
+            catch (Exception ex)
+            {
+
+            }
             return View(model);
         }
 
@@ -31,17 +38,24 @@ namespace Membership.Controllers
         [ValidateGoogleCaptchaAttribute]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (System.Web.Security.Membership.ValidateUser(model.Username, model.Password))
+                if (ModelState.IsValid)
                 {
-                    model.Login = "Success";
+                    if (System.Web.Security.Membership.ValidateUser(model.Username, model.Password))
+                    {
+                        model.Login = "Success";
+                        _log.Log(model);
+                        FormsAuthentication.SetAuthCookie(model.Username, false);
+                        return RedirectToLocal(returnUrl);
+                    }
+                    model.Login = "Failure";
                     _log.Log(model);
-                    FormsAuthentication.SetAuthCookie(model.Username, false);
-                    return RedirectToLocal(returnUrl);
                 }
-                model.Login = "Failure";
-                _log.Log(model);
+            }
+            catch (Exception ex)
+            {
+
             }
             return View(model);
         }
@@ -56,7 +70,14 @@ namespace Membership.Controllers
         public ActionResult Register()
         {
             RegisterModel model = new RegisterModel();
-            model.ListOfRoles = Roles.GetAllRoles().ToList();
+            try
+            {
+                model.ListOfRoles = Roles.GetAllRoles().ToList();
+            }
+            catch (Exception ex)
+            {
+
+            }
             return View(model);
         }
 
@@ -64,23 +85,30 @@ namespace Membership.Controllers
         [ValidateGoogleCaptchaAttribute]
         public ActionResult Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                MembershipCreateStatus createStatus;
-                MembershipUser newUser = System.Web.Security.Membership.Provider.CreateUser(model.Username, model.Password, null, null, null, true, null, out createStatus);
-                if (createStatus == MembershipCreateStatus.Success)
+                if (ModelState.IsValid)
                 {
-                    CreateRoles();
-                    Roles.AddUserToRole(newUser.UserName, model.RoleId);
-                    return RedirectToAction("Login");
+                    MembershipCreateStatus createStatus;
+                    MembershipUser newUser = System.Web.Security.Membership.Provider.CreateUser(model.Username, model.Password, null, null, null, true, null, out createStatus);
+                    if (createStatus == MembershipCreateStatus.Success)
+                    {
+                        CreateRoles();
+                        Roles.AddUserToRole(newUser.UserName, model.RoleId);
+                        return RedirectToAction("Login");
+                    }
+                    else
+                    {
+                        string message = GetMessage(createStatus);
+                        ModelState.AddModelError("Error", message);
+                    }
                 }
-                else
-                {
-                    string message = GetMessage(createStatus);
-                    ModelState.AddModelError("Error", message);
-                }
+                model.ListOfRoles = Roles.GetAllRoles().ToList();
             }
-            model.ListOfRoles = Roles.GetAllRoles().ToList();
+            catch (Exception ex)
+            {
+
+            }
             return View(model);
         }
 

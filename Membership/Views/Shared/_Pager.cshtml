@@ -1,0 +1,59 @@
+﻿@using Membership.Models
+@model PagerModel
+<div>
+    <ul>
+        <li class="paging">
+            @if (Model.CurrentPage == 1)
+            {
+                <span class="no-cursor">First</span>
+            }
+            else
+            {
+                <a onclick="@string.Format(" GoToPage({0},{1})", 1, Model.RecordPerPage)">First</a>
+            }
+        </li>
+
+        <li class="paging">
+            @if (Model.CurrentPage == 1)
+            {
+                <span class="no-cursor">Prev</span>
+            }
+            else
+            {
+                <a onclick="@string.Format(" GoToPage({0},{1})", (Model.CurrentPage - 1), Model.RecordPerPage)">Prev</a>
+            }
+        </li>
+        <li class="paging">
+            <b>Page @Model.CurrentPage of @Model.TotalPages</b>
+        </li>
+        @*page size login*@
+        @*<li class="paging">
+            <select id="recordPerPage" name="recordPerPage" onchange="DetectPageSize(this)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+        </li>*@
+        <li class="paging">
+            @if (Model.TotalPages == Model.CurrentPage)
+            {
+                <span class="no-cursor">Next</span>
+            }
+            else
+            {
+                <a onclick="@string.Format(" GoToPage({0},{1})", (Model.CurrentPage + 1), Model.RecordPerPage)">Next</a>
+            }
+        </li>
+        <li class="paging">
+            @if (Model.CurrentPage == Model.TotalPages)
+            {
+                <span class="no-cursor">Last</span>
+            }
+            else
+            {
+                <a onclick="@string.Format(" GoToPage({0},{1})", Model.TotalPages, Model.RecordPerPage)">Last</a>
+            }
+        </li>
+    </ul>
+</div>

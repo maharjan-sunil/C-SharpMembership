@@ -11,6 +11,7 @@ namespace Membership
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/toastr.js",
+                        "~/Scripts/auto-table.js",
                         "~/Scripts/main.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

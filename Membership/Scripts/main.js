@@ -25,3 +25,16 @@ function ToggleIcon(input) {
     }
 
 }
+
+function GoToPage(page, pageSize) {
+    $('#currentPage').val(page);
+    $('#recordPerPage').val(pageSize);
+    $('#pagingForm').submit();
+}
+
+//need to work in record per page 
+//function DetectPageSize(input) {
+//    var page = $('#currentPage').val();
+//    var pageSize = input.value;
+//    GoToPage(page, pageSize);
+//};
