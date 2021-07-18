@@ -5,7 +5,7 @@
         public PagerModel()
         {
             CurrentPage = 1;
-            RecordPerPage = 2;
+            RecordPerPage = 10;
         }
 
         public PagerModel(int size)

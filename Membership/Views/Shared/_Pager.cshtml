@@ -26,15 +26,46 @@
         <li class="paging">
             <b>Page @Model.CurrentPage of @Model.TotalPages</b>
         </li>
-        @*page size login*@
-        @*<li class="paging">
-            <select id="recordPerPage" name="recordPerPage" onchange="DetectPageSize(this)">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
+
+        <li class="paging">
+            @{
+                string optionDisable = "";
+                var size = new int[] { 10, 20, 50, 100 };
+            }
+            <select onchange="@string.Format(" GoToPage({0},{1})",1,"$(this).val()")">
+                <option value="0">All</option>
+                @for (int i = 0; i < size.Length; i++)
+                {
+                    if (size[i] < Model.TotalRecords)
+                    {
+                        optionDisable = "";
+                    }
+                    else
+                    {
+                        optionDisable = "disabled=\"disabled\"";
+                    }
+
+                    if (size[i] == Model.RecordPerPage)
+                    {
+                        <option value="@size[i]" selected="selected" @optionDisable>@size[i]</option>
+                    }
+                    else
+                    {
+                        //if (!Enumerable.Range(pindex - 1 < 0 ? 0 : pageSize[(pindex - 1) < 0 ? 0 : pindex - 1], pageSize[((pindex + 1) >= pageSize.Length) ? pageSize.Length - 1 : pindex + 1]).Contains(Model.TotalRecords))
+                        //{
+                        //    opt_disabled = "disabled=\"disabled\"";
+                        //}
+                        //else
+                        //{
+                        //    opt_disabled = "";
+                        //}
+                        <option value="@size[i]" @optionDisable>@size[i]</option>
+
+                    }
+                }
             </select>
-        </li>*@
+        </li>
+
         <li class="paging">
             @if (Model.TotalPages == Model.CurrentPage)
             {
