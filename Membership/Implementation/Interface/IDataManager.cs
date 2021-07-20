@@ -2,14 +2,14 @@
 
 namespace Membership.Implementation.Interface
 {
-    public interface IDataManager<Class>
-        where Class: class
+    public interface IDataManager<Model, ViewModel>
+         where Model : class
+        where ViewModel : class
     {
-        List<Class> GetList();
-        List<Class> GetList(Class model);
-        Class GetDetail(int id);
+        ViewModel GetList(ViewModel model);
+        Model GetDetail(int id);
         bool Delete(int id);
-        bool Edit(Class model);
-        bool Add(Class model );
+        bool Edit(Model model);
+        bool Add(Model model );
     }
 }

@@ -25,3 +25,9 @@ function ToggleIcon(input) {
     }
 
 }
+
+function GoToPage(page, pageSize) {
+    $('#currentPage').val(page);
+    $('#recordPerPage').val(pageSize);
+    $('#pagingForm').submit();
+}
