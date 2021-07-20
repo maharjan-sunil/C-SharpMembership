@@ -40,9 +40,17 @@
                     {
                         optionDisable = "";
                     }
+
                     else
                     {
-                        optionDisable = "disabled=\"disabled\"";
+                        if (!Enumerable.Range(i - 1 < 0 ? 0 : size[(i - 1) < 0 ? 0 : i - 1], size[((i + 1) >= size.Length) ? size.Length - 1 : i + 1]).Contains(Model.TotalRecords))
+                        {
+                            optionDisable = "disabled=\"disabled\"";
+                        }
+                        else
+                        {
+                            optionDisable = "";
+                        }
                     }
 
                     if (size[i] == Model.RecordPerPage)
@@ -51,14 +59,6 @@
                     }
                     else
                     {
-                        //if (!Enumerable.Range(pindex - 1 < 0 ? 0 : pageSize[(pindex - 1) < 0 ? 0 : pindex - 1], pageSize[((pindex + 1) >= pageSize.Length) ? pageSize.Length - 1 : pindex + 1]).Contains(Model.TotalRecords))
-                        //{
-                        //    opt_disabled = "disabled=\"disabled\"";
-                        //}
-                        //else
-                        //{
-                        //    opt_disabled = "";
-                        //}
                         <option value="@size[i]" @optionDisable>@size[i]</option>
 
                     }
