@@ -326,6 +326,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Membership.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Database\Std_Lib_Result.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Student.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
@@ -404,6 +407,7 @@
     <Compile Include="Models\PagerModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\StdLtdModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

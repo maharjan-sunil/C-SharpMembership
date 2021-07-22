@@ -788,6 +788,10 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <Parameter Name="ExceptionType" Type="nvarchar" Mode="In" />
           <Parameter Name="Details" Type="ntext" Mode="In" />
         </Function>
+        <Function Name="Std_Lib" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StudentName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Department" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="MembershipModelStoreContainer">
           <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
@@ -1731,6 +1735,10 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
           <EntitySet Name="Members" EntityType="MembershipModel.Member" />
+          <FunctionImport Name="Std_Lib" ReturnType="Collection(MembershipModel.Std_Lib_Result)">
+            <Parameter Name="StudentName" Mode="In" Type="String" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="aspnet_Membership_GetPassword_Result">
           <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
@@ -1823,6 +1831,11 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
           <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="Std_Lib_Result">
+          <Property Type="Int32" Name="StudentId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2231,6 +2244,15 @@ warning 6002: The table/view 'Membership.dbo.vw_aspnet_WebPartState_User' does n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Std_Lib" FunctionName="MembershipModel.Store.Std_Lib">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MembershipModel.Std_Lib_Result">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
