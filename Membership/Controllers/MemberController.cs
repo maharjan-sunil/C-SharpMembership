@@ -9,9 +9,9 @@ using System.Web.Mvc;
 namespace Membership.Controllers
 {
     [Authorize]
-    public class MemberController : Controller, IController<MemberModel>
+    public class MemberController : Controller, IController<MemberModel,MemberViewNodel>
     {
-        private IDataManager<MemberModel> _repository;
+        private IDataManager<MemberModel, MemberViewNodel> _repository;
         private const string Directory = "Member";
         private readonly FileDataManager fileDataManager;
 
@@ -24,16 +24,17 @@ namespace Membership.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var listOfMember = _repository.GetList();
-            return View(listOfMember);
+            var model = new MemberViewNodel();
+            model = _repository.GetList(model);
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(MemberModel model)
+        public ActionResult Index(MemberViewNodel model)
         {
-            var listOfMember = _repository.GetList(model);
-            return View(listOfMember);
+            model = _repository.GetList(model);
+            return View(model);
         }
 
         [HttpGet]

@@ -23,6 +23,23 @@ textarea {
     max-width: 280px;
 }
 
-.field-validation-error{
-    color:red;
+.validation-summary-errors, .field-validation-error {
+    color: red;
+}
+
+th.tablesort-asc:after {
+    content: "\25BC";
+}
+
+th.tablesort-desc:after {
+    content: "\25B2";
+}
+
+ul li.paging {
+    display: inline;
+    margin-right:8px;
+}
+
+.no-cursor {
+    cursor: no-drop
 }

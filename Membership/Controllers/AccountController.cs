@@ -40,6 +40,7 @@ namespace Membership.Controllers
         {
             try
             {
+
                 new LogController().Index();
                 if (ModelState.IsValid)
                 {

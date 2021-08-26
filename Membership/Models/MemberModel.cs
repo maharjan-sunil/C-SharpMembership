@@ -1,17 +1,30 @@
 ﻿using Foolproof;
 using Membership.CustomAttribute;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 namespace Membership.Models
 {
+    public class MemberViewNodel
+    {
+        public MemberViewNodel()
+        {
+            Pager = new PagerModel();
+        }
+
+        public IEnumerable<MemberModel>ListOfModel { get; set; }
+        public PagerModel Pager { get; set; }
+
+    }
+
     public class MemberModel
     {
         public int Id { get; set; }
 
-        [Required (ErrorMessage ="Required")]
-        [Display(Name="Member Name")]
+        [Required(ErrorMessage = "Required")]
+        [Display(Name = "Member Name")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Required")]
@@ -40,12 +53,13 @@ namespace Membership.Models
         [Display(Name = "Date of Birth")]
         public DateTime DOB { get; set; }
         public string DOBLabel { get; set; }
+
         public bool IsFileRequired { get; set; }
 
         [File(".pdf")]
         [Display(Name = "File")]
-        [RequiredIf("IsFileRequired", true, ErrorMessage = "Please upload file")]
-        public HttpPostedFileBase File { get; set; }
+        [RequiredIfTrue("IsFileRequired", ErrorMessage = "Please upload file")]
+        public HttpPostedFileBase PDFFile { get; set; }
 
         public string FileName { get; set; }
 

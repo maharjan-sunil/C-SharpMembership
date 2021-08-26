@@ -399,6 +399,7 @@
     <Compile Include="Implementation\Service\FileService.cs" />
     <Compile Include="Implementation\Service\HouseKeeperService.cs" />
     <Compile Include="Implementation\Service\OrderService.cs" />
+    <Compile Include="Implementation\Service\PagingService.cs" />
     <Compile Include="IpTrack.asmx.cs">
       <DependentUpon>IpTrack.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -410,6 +411,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\PagerModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -442,6 +444,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="IpTrack.asmx" />
+    <Content Include="Scripts\auto-table.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Database\Membership.edmx">
@@ -490,6 +493,7 @@
     <Content Include="Views\Member\Create.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Home\AccessDenied.cshtml" />
+    <Content Include="Views\Shared\_Pager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

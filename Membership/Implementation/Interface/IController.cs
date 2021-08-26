@@ -2,11 +2,12 @@
 
 namespace Membership.Implementation.Interface
 {
-    interface IController<Model>
+    interface IController<Model,ViewModel>
         where Model : class
+        where ViewModel: class
     {
         ActionResult Index();
-        ActionResult Index(Model model);
+        ActionResult Index(ViewModel model);
         ActionResult Create();
         ActionResult Create(Model model);
         ActionResult Edit(int id);

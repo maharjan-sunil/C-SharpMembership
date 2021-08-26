@@ -44,7 +44,7 @@ namespace Membership.Controllers
             List<Student> students = new List<Student>();
             if (ModelState.IsValid)
             {
-                string fileData = dataManager.ReadFromFile(model.File);
+                string fileData = dataManager.ReadFromFile(model.CSVFile);
                 for (int count = 1; count < (fileData.Split('\n').Count() - 1); count++)
                 {
                     //if you intend to spilt more than one char

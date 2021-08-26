@@ -1,6 +1,7 @@
 ﻿using Membership.Database;
 using Membership.Implementation.Converter;
 using Membership.Implementation.Interface;
+using Membership.Implementation.Service;
 using Membership.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Linq;
 
 namespace Membership.Implementation.DataManager
 {
-    public class MemberDataManager : BaseDataManager<MemberConverter>, IDataManager<MemberModel>
+    public class MemberDataManager : BaseDataManager<MemberConverter>, IDataManager<MemberModel,MemberViewNodel>
     {
         private readonly FileDataManager fileDataManager;
         private const string Directory = "Member"; 
@@ -23,7 +24,7 @@ namespace Membership.Implementation.DataManager
             {
                 using (var db = new MembershipEntities())
                 {
-                    model.FileName = fileDataManager.UploadHttpPostedFileBase(model.File, Directory);
+                    model.FileName = fileDataManager.UploadHttpPostedFileBase(model.PDFFile, Directory);
                     var member = converter.ConvertToEntity(model);
                     db.Members.Add(member);
                     db.SaveChanges();
@@ -80,36 +81,14 @@ namespace Membership.Implementation.DataManager
             }
         }
 
-        public List<MemberModel> GetList()
-        {
-            List<MemberModel> listOfMember = new List<MemberModel>();
-            try
-            {
-                using (var db = new MembershipEntities())
-                {
-                    var list = db.Members.ToList();
-                    foreach (var data in list)
-                    {
-                        var model = converter.ConverToModel(data);
-                        listOfMember.Add(model);
-                    }
-                    return listOfMember;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public bool Edit(MemberModel model)
         {
             try
             {
                 using (var db = new MembershipEntities())
                 {
-                    if (model.File != null)
-                        model.FileName = fileDataManager.UploadHttpPostedFileBase(model.File, Directory);
+                    if (model.PDFFile != null)
+                        model.FileName = fileDataManager.UploadHttpPostedFileBase(model.PDFFile, Directory);
                     var member = db.Members.FirstOrDefault(m => m.Id == model.Id);
                     converter.ConvertToEntity(model, member);
                     db.SaveChanges();
@@ -122,26 +101,36 @@ namespace Membership.Implementation.DataManager
             }
         }
 
-        public List<MemberModel> GetList(MemberModel model)
+        public MemberViewNodel GetList(MemberViewNodel model)
         {
-            List<MemberModel> listOfMember = new List<MemberModel>();
+            var list = new List<MemberModel>();
+            int total = 0;
             try
             {
                 using (var db = new MembershipEntities())
                 {
                     var query = db.Members.AsQueryable();
-                    if (!string.IsNullOrEmpty(model.Name))
-                        query = query.Where(q => q.Name.Contains(model.Name));
-                    if (!string.IsNullOrEmpty(model.Contact))
-                        query = query.Where(q => q.Contact.Contains(model.Contact));
-                    if (model.Age > 0)
-                        query = query.Where(q => q.Age == model.Age);
-                    foreach (var data in query)
+
+                    // will be replace by jquery table
+                    //if (!string.IsNullOrEmpty(model.Name))
+                    //    query = query.Where(q => q.Name.Contains(model.Name));
+                    //if (!string.IsNullOrEmpty(model.Contact))
+                    //    query = query.Where(q => q.Contact.Contains(model.Contact));
+                    //if (model.Age > 0)
+                    //    query = query.Where(q => q.Age == model.Age);
+                    //end 
+                    total = query.Count();
+                    query = query.OrderBy(q => q.Name);
+                    var queryList = PagingService.QueryRecordsForPage(query, model.Pager.CurrentPage, model.Pager.RecordPerPage);
+
+                    foreach (var member in queryList)
                     {
-                        var member = converter.ConverToModel(data);
-                        listOfMember.Add(member);
+                        var memberModel = converter.ConverToModel(member);
+                        list.Add(memberModel);
                     }
-                    return listOfMember;
+                    model.ListOfModel = list;
+                    model.Pager = PagingService.CalculateTotalPageAndRecords(model.Pager, total);
+                    return model;
                 }
             }
             catch (Exception ex)
@@ -149,5 +138,6 @@ namespace Membership.Implementation.DataManager
                 throw ex;
             }
         }
+
     }
 }

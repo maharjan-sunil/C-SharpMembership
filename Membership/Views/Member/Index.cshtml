@@ -1,5 +1,5 @@
 ﻿@using Membership.Models
-@model IEnumerable<MemberModel>
+@model MemberViewNodel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -51,67 +51,84 @@
 
 <div class="container">
 
-    <form method="post">
+    <form method="post" id="pagingForm">
         @Html.AntiForgeryToken()
-        <input type="hidden" id="nameInput" name="Name" >
-        <input type="hidden" id="ageInput" name="Age" >
-        <input type="hidden" id="contactInput" name="Contact">
+        @Html.HiddenFor(x => x.Pager.CurrentPage, new { @id = "currentPage" })
+        @Html.HiddenFor(x => x.Pager.RecordPerPage, new { @id = "recordPerPage" })
+        @*<input type="hidden" id="nameInput" name="Name">
+            <input type="hidden" id="ageInput" name="Age">
+            <input type="hidden" id="contactInput" name="Contact">*@
     </form>
-    
+
     <div style="margin-bottom:24px">
         <h2>Member</h2>
         <a class="btn btn-success" href="/Member/Create">Add</a>
-        <a class="btn btn-default" href="/Member/Index" >Back</a>
+        @*<a class="btn btn-default" href="/Member/Index">Back</a>*@
     </div>
-    <table class="table table-bordered">
+
+    <div class="row">
+        <div class="col-md-8">
+            <input data-tablesearch-table="#datatable"
+                   class="form-control tablesearch-input"
+                   type="text"
+                   placeholder="Search..">
+        </div>
+        <div class="col-md-4">
+            @{
+                Html.RenderPartial("_Pager", Model.Pager);
+            }
+        </div>
+    </div><br />
+
+    <table class="table table-bordered tablesort tablesearch-table" id="datatable">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Contact</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>DOB</th>
+                <th data-tablesort-type="string">Name</th>
+                <th data-tablesort-type="int">Age</th>
+                <th data-tablesort-type="string">Contact</th>
+                <th data-tablesort-type="string">Address</th>
+                <th data-tablesort-type="string">Gender</th>
+                <th data-tablesort-type="string">DOB</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><input type="text" style="border:none" id="name" class="filter"></td>
-                <td><input type="text" style="border:none" id="age" class="filter"></td>
-                <td><input type="text" style="border:none" id="contact" class="filter"></td>
-            </tr>
-            @if (Model.Any())
+            @*<tr>
+                    <td><input type="text" style="border:none" id="name" class="filter"></td>
+                    <td><input type="text" style="border:none" id="age" class="filter"></td>
+                    <td><input type="text" style="border:none" id="contact" class="filter"></td>
+                </tr>*@
+            @if (Model != null)
             {
-                foreach (var list in Model)
+                foreach (var list in Model.ListOfModel)
                 {
-                <tr id="member_@list.Id">
-                    <td>@list.Name</td>
-                    <td>@list.Age</td>
-                    <td>@list.Contact</td>
-                    <td>@list.Address</td>
-                    <td>@list.GenderLabel</td>
-                    <td>@list.DOB</td>
-                    <td>
-                        <div>
-                            <a href="#" onclick="InfoMember(@list.Id)">
-                                <i class="fa fa-info" aria-hidden="true" title="info"></i>
-                            </a>
-                            <a href="/Member/Edit/@list.Id">
-                                <i class="fa fa-pencil" aria-hidden="true" title="edit"></i>
-                            </a>
-                            @if (!User.IsInRole("Staff"))
-                            {
-                                <a href="#" data-id="@list.Id" data-toggle="modal" data-target="#delete">
-                                    <i class="fa fa-trash" aria-hidden="true" title="delete"></i>
+                    <tr id="member_@list.Id">
+                        <td>@list.Name</td>
+                        <td>@list.Age</td>
+                        <td>@list.Contact</td>
+                        <td>@list.Address</td>
+                        <td>@list.GenderLabel</td>
+                        <td>@list.DOB</td>
+                        <td>
+                            <div>
+                                <a href="#" onclick="InfoMember(@list.Id)">
+                                    <i class="fa fa-info" aria-hidden="true" title="info"></i>
                                 </a>
-                                <a href="/Member/Download?fileName=@list.FileName">
-                                    <i class="fa fa-file" aria-hidden="true" title="download"></i>
+                                <a href="/Member/Edit/@list.Id">
+                                    <i class="fa fa-pencil" aria-hidden="true" title="edit"></i>
                                 </a>
-                            }
-                        </div>
-                    </td>
-                </tr>
+                                @if (!User.IsInRole("Staff"))
+                                {
+                                    <a href="#" data-id="@list.Id" data-toggle="modal" data-target="#delete">
+                                        <i class="fa fa-trash" aria-hidden="true" title="delete"></i>
+                                    </a>
+                                    <a href="/Member/Download?fileName=@list.FileName">
+                                        <i class="fa fa-file" aria-hidden="true" title="download"></i>
+                                    </a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
 
                 }
             }
@@ -131,31 +148,31 @@
 @section scripts{
     <script>
 
-        $(document).ready(function () {
+        //  $(document).ready(function () {
 
-            $(".filter").on('keyup', function (e) {
-                if (e.key === 'Enter' || e.keyCode === 13) {
+        //$(".filter").on('keyup', function (e) {
+        //    if (e.key === 'Enter' || e.keyCode === 13) {
 
-                    $('#nameInput').val($('#name').val());
-                    $('#ageInput').val($('#age').val());
-                    $('#contactInput').val($('#contact').val());
+        //        $('#nameInput').val($('#name').val());
+        //        $('#ageInput').val($('#age').val());
+        //        $('#contactInput').val($('#contact').val());
 
-                    $('form').submit();
+        //        $('form').submit();
 
-                    //if (name !== "" && name !== undefined) {
-                    //    queryParams = `${queryParams ? '&' : ''}name=${name}`;
-                    //}
-                    //if (age !== "" && age !== undefined) {
-                    //    queryParams += `${queryParams ? '&' : ''}age=${age}`;
-                    //}
-                    //if (contact !== "" && contact !== undefined) {
-                    //    queryParams += `${queryParams ? '&' : ''}contact=${contact}`;
-                    //}
-                    //Filter(queryParams);
+        //if (name !== "" && name !== undefined) {
+        //    queryParams = `${queryParams ? '&' : ''}name=${name}`;
+        //}
+        //if (age !== "" && age !== undefined) {
+        //    queryParams += `${queryParams ? '&' : ''}age=${age}`;
+        //}
+        //if (contact !== "" && contact !== undefined) {
+        //    queryParams += `${queryParams ? '&' : ''}contact=${contact}`;
+        //}
+        //Filter(queryParams);
 
-                };
-            });
-        });
+        //        };
+        //    });
+        //});
 
         //function Filter(query) {
         //    $.ajax({
@@ -203,26 +220,26 @@
 
         function GetHtmlResponse(Data) {
             var htmlResponse = `
-                <Table>
-                    <tr>
-                      <td>Name: ${Data.Name}</td>
-                     </tr>
-                     <tr>
-                      <td>Age: ${Data.Age}</td>
-                     </tr>
-                     <tr>
-                      <td>Address: ${Data.Address}</td>
-                      </tr>
-                        <tr>
-                      <td>Contact: ${Data.Contact}</td>
-                     </tr>
-                        <tr>
-                      <td>Gender: ${Data.Gender}</td>
-                         </tr>
-                          <tr>
-                      <td>DOB: ${Data.DOBLabel}</td>
-                    </tr>
-                 </Table>`;
+                                    <Table>
+                                        <tr>
+                                          <td>Name: ${Data.Name}</td>
+                                         </tr>
+                                         <tr>
+                                          <td>Age: ${Data.Age}</td>
+                                         </tr>
+                                         <tr>
+                                          <td>Address: ${Data.Address}</td>
+                                          </tr>
+                                            <tr>
+                                          <td>Contact: ${Data.Contact}</td>
+                                         </tr>
+                                            <tr>
+                                          <td>Gender: ${Data.Gender}</td>
+                                             </tr>
+                                              <tr>
+                                          <td>DOB: ${Data.DOBLabel}</td>
+                                        </tr>
+                                     </Table>`;
             return htmlResponse;
         }
 
