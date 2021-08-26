@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -241,6 +247,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Constant\BaseUrl\Url.cs" />
     <Compile Include="Constant\EncodingConstant.cs" />
@@ -356,6 +363,8 @@
     <Compile Include="Database\vw_aspnet_WebPartState_User.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="DomainModel\Log.cs" />
+    <Compile Include="Extension\AutoMapperExtensions.cs" />
     <Compile Include="Fake\FakeReadService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -397,6 +406,7 @@
     </Compile>
     <Compile Include="Implementation\OOP\AbstractTest.cs" />
     <Compile Include="Implementation\OOP\SealedTest.cs" />
+    <Compile Include="Mapping\LogMappingProfile.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MemberModel.cs" />

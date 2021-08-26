@@ -40,6 +40,8 @@ namespace Membership.Controllers
         {
             try
             {
+
+                new LogController().Index();
                 if (ModelState.IsValid)
                 {
                     if (System.Web.Security.Membership.ValidateUser(model.Username, model.Password))

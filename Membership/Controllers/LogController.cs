@@ -8,17 +8,21 @@ using System.Web.Mvc;
 
 namespace Membership.Controllers
 {
-    [SuperAdminAuthorize]
+    //[SuperAdminAuthorize]
     public class LogController : BaseController<LogDataManager>
     {
         // GET: Log
         public ActionResult Index()
         {
-            //demo of protected
-            //   dataManager.Log(new LoginModel { Username = "Sunil" });
+            var source = new Log
+            {
+                Id = 1,
+                Name = "Harish"
+            };
+
+            DomainModel.Log destination = AutoMapper.Mapper.Map<DomainModel.Log>(source);
             List<LoginModel> list = new List<LoginModel>();
-              //LoginLogModel model = new LoginLogModel();
-              string logPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
+            string logPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
             using (StreamReader stream = new StreamReader(logPath))
             {
                 var log = stream.ReadToEnd();
@@ -27,4 +31,11 @@ namespace Membership.Controllers
             return View(list);
         }
     }
+
+    public class Log
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
 }
