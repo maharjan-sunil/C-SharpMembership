@@ -33,15 +33,9 @@ namespace Membership.Controllers
         {
             if (ModelState.IsValid)
             {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                 if (System.Web.Security.Membership.ValidateUser(model.Username, model.Password))
-=======
-=======
->>>>>>> Stashed changes
                 new LogController().Index();
                 if (ModelState.IsValid)
->>>>>>> Stashed changes
                 {
                     model.Login = "Success";
                     _log.Log(model);
