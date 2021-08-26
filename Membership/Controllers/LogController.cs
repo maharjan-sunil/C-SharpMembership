@@ -30,6 +30,11 @@ namespace Membership.Controllers
             }
             return View(list);
         }
+
+        public void Std_Lib()
+        {
+            dataManager.GetStdLibFromSP();
+        }
     }
 
     public class Log

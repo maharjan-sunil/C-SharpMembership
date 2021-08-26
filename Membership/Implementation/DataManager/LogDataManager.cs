@@ -1,9 +1,11 @@
-﻿using Membership.Implementation.Interface;
+﻿using Membership.Database;
+using Membership.Implementation.Interface;
 using Membership.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 
 namespace Membership.Implementation.DataManager
@@ -49,6 +51,16 @@ namespace Membership.Implementation.DataManager
             {
                 string logString = GetLogData(model);
                 File.WriteAllText(logFilePath, logString);
+            }
+        }
+
+        internal void GetStdLibFromSP()
+        {
+            string studentName = "Sunil";
+            string department = "Comic";
+           using (var db = new MembershipEntities())
+            {
+                var stdLtd = db.Std_Lib(studentName, department).ToList();
             }
         }
 

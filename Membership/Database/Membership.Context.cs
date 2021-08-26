@@ -1168,5 +1168,18 @@ namespace Membership.Database
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_WebEvent_LogEvent", eventIdParameter, eventTimeUtcParameter, eventTimeParameter, eventTypeParameter, eventSequenceParameter, eventOccurrenceParameter, eventCodeParameter, eventDetailCodeParameter, messageParameter, applicationPathParameter, applicationVirtualPathParameter, machineNameParameter, requestUrlParameter, exceptionTypeParameter, detailsParameter);
         }
+    
+        public virtual ObjectResult<Std_Lib_Result> Std_Lib(string studentName, string department)
+        {
+            var studentNameParameter = studentName != null ?
+                new ObjectParameter("StudentName", studentName) :
+                new ObjectParameter("StudentName", typeof(string));
+    
+            var departmentParameter = department != null ?
+                new ObjectParameter("Department", department) :
+                new ObjectParameter("Department", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Std_Lib_Result>("Std_Lib", studentNameParameter, departmentParameter);
+        }
     }
 }
