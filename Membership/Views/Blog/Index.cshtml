@@ -1,0 +1,75 @@
+﻿@using Membership.Models
+@model BlogViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Blog</h2>
+
+<div style="margin-bottom:24px">
+    <a class="btn btn-success" href="/Blog/Create">Add</a>
+</div>
+
+<div class="container">
+
+    @using (Html.BeginForm("Index", "Blog", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        <div class="row form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(x => x.Title)
+                @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Title)
+            </div>
+
+            <div class="col-md-4">
+                @Html.LabelFor(x => x.Rating)
+                @Html.TextBoxFor(x => x.Rating, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Rating)
+            </div>
+            <div class="col-md-4">
+                <input class="btn btn-primary" type="submit" value="Filter" />
+            </div>
+        </div>
+
+    }
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.ListOfModel != null)
+            {
+                foreach (var list in Model.ListOfModel)
+                {
+                    <tr id="member_@list.Id">
+                        <td>@list.Title</td>
+                        <td>@list.Author</td>
+                        <td>@list.Rating</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center">
+                        No Data Available
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+
+    </script>
+}
