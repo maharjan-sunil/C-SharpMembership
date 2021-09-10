@@ -3,6 +3,7 @@ using Membership.Implementation.DataManager;
 using Membership.Implementation.Interface;
 using Membership.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -18,6 +19,7 @@ namespace Membership.Controllers
             _log = new LogDataManager();
         }
 
+        private string GetFromExpressionBody() => $"This is expression body";
 
         [HttpGet]
         public ActionResult Login(string returnUrl)
@@ -42,6 +44,17 @@ namespace Membership.Controllers
             {
 
                 new LogController().Index();
+                var list = new List<Patient>
+                {
+                    new Patient
+                    {
+                        Id = 1,
+                        Name="Manish"
+                    }
+                };
+
+
+                var expressionResult = GetFromExpressionBody();
                 if (ModelState.IsValid)
                 {
                     if (System.Web.Security.Membership.ValidateUser(model.Username, model.Password))
