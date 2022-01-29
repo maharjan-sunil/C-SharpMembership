@@ -26,8 +26,7 @@ namespace Membership.Implementation.DataManager
         {
             //var applicationId = ApplicationId;
             string directoryPath = HttpContext.Current.Server.MapPath("~/SystemFile");
-            string logFilePath = directoryPath + "/Log.Log";
-            directoryManager.DirectoryExist(directoryPath);
+            string logFilePath = LogFileExist(directoryPath);
 
             if (File.Exists(logFilePath))
             {
@@ -47,11 +46,23 @@ namespace Membership.Implementation.DataManager
                 var loginModel = JsonConvert.SerializeObject(list, Formatting.Indented);
                 File.WriteAllText(logFilePath, loginModel);
             }
-            else
+            //else
+            //{
+            //    string logString = GetLogData(model);
+            //    File.WriteAllText(logFilePath, logString);
+            //}
+        }
+
+        public string LogFileExist(string directoryPath)
+        {
+            string logFilePath = directoryPath + "/Log.Log";
+            directoryManager.DirectoryExist(directoryPath);
+            if (!File.Exists(logFilePath))
             {
-                string logString = GetLogData(model);
+                string logString = GetLogData(new LoginModel());
                 File.WriteAllText(logFilePath, logString);
             }
+            return logFilePath;
         }
 
         internal void GetStdLibFromSP()
@@ -76,7 +87,7 @@ namespace Membership.Implementation.DataManager
             //strBuilder.AppendFormat("Login :\t {0}", model.Login);
             //strBuilder.AppendLine();
             //return strBuilder.ToString();
-            return loginModel;
+            return "[" + loginModel + "]";
         }
 
     }
