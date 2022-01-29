@@ -22,10 +22,12 @@ namespace Membership.Controllers
 
             DomainModel.Log destination = AutoMapper.Mapper.Map<DomainModel.Log>(source);
             List<LoginModel> list = new List<LoginModel>();
-            string logPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile/Log.Log");
-            using (StreamReader stream = new StreamReader(logPath))
+            string directoryPath = System.Web.HttpContext.Current.Server.MapPath("~/SystemFile");
+            string logFilePath = new LogDataManager().LogFileExist(directoryPath);
+            using (StreamReader stream = new StreamReader(logFilePath))
             {
                 var log = stream.ReadToEnd();
+                if(!string.IsNullOrEmpty(log))
                 list = JsonConvert.DeserializeObject<List<LoginModel>>(log);
             }
             return View(list);
