@@ -38,6 +38,8 @@
         <EntityTypeShape EntityType="MembershipModel.Student" Width="1.5" PointX="15.625" PointY="10.875" />
         <AssociationConnector Association="MembershipModel.FK__Student__Library__3E1D39E1" />
         <EntityTypeShape EntityType="MembershipModel.Member" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="MembershipModel.Department" Width="1.5" PointX="13.375" PointY="17.25" />
+        <AssociationConnector Association="MembershipModel.FK__Student__departm__40F9A68C" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

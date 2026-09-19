@@ -312,6 +312,9 @@
     <Compile Include="Database\aspnet_WebEvent_Events.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\Department.cs">
+      <DependentUpon>Membership.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Library.cs">
       <DependentUpon>Membership.tt</DependentUpon>
     </Compile>

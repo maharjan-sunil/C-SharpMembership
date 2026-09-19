@@ -17,7 +17,10 @@ namespace Membership.Database
         public int StudentId { get; set; }
         public string Name { get; set; }
         public int LibraryId { get; set; }
+        public Nullable<int> department { get; set; }
+        public Nullable<int> score { get; set; }
     
         public virtual Library Library { get; set; }
+        public virtual Department Department1 { get; set; }
     }
 }

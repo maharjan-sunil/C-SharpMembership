@@ -49,6 +49,7 @@ namespace Membership.Database
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
     
         public virtual ObjectResult<string> aspnet_AnyDataInTables(Nullable<int> tablesToCheck)
         {

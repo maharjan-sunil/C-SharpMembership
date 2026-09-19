@@ -22,5 +22,7 @@ namespace Membership.Database
         public int Gender { get; set; }
         public System.DateTime DOB { get; set; }
         public string FileName { get; set; }
+        public string SIN_NO { get; set; }
+        public DateTime DateofExpiry { get; set; }
     }
 }
